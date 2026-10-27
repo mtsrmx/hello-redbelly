@@ -1,0 +1,1218 @@
+{
+  "title": "Redbelly, made simple",
+  "logline": "What Redbelly does and why it matters, in everyday language.",
+  "language": "en",
+  "duration": 85.0,
+  "tempo": {
+    "bpm": 96,
+    "beatsPerBar": 4
+  },
+  "chapters": [
+    {
+      "label": "What it is",
+      "start": 13.75,
+      "end": 27.5
+    },
+    {
+      "label": "How it works",
+      "start": 27.5,
+      "end": 52.5
+    },
+    {
+      "label": "Why trust it",
+      "start": 52.5,
+      "end": 67.5
+    },
+    {
+      "label": "Why it matters",
+      "start": 67.5,
+      "end": 77.5
+    }
+  ],
+  "scenes": [
+    {
+      "id": "send",
+      "start": 0.0,
+      "end": 2.5,
+      "text": {
+        "lines": [
+          "You can send money",
+          "in seconds."
+        ],
+        "accent": [
+          "in seconds."
+        ]
+      },
+      "ui": {
+        "app": "Send money",
+        "to": "To",
+        "recipient": "Mum",
+        "button": "Send",
+        "done": "Sent",
+        "timer": "00:02"
+      },
+      "sfx": [
+        {
+          "t": 0.95,
+          "type": "tap"
+        },
+        {
+          "t": 1.05,
+          "type": "whoosh"
+        },
+        {
+          "t": 1.32,
+          "type": "success"
+        }
+      ],
+      "claims": [],
+      "visual": "A phone sends money to Mum. A paper plane flies off and a red tick lands: Sent, 00:02."
+    },
+    {
+      "id": "fund",
+      "start": 2.5,
+      "end": 6.25,
+      "text": {
+        "lines": [
+          "But buying into",
+          "a fund?"
+        ],
+        "lines2": [
+          "That can still",
+          "take days."
+        ],
+        "accent2": [
+          "days."
+        ]
+      },
+      "ui": {
+        "app": "Buy into a fund",
+        "fund": "Investment fund",
+        "button": "Apply",
+        "status": "Pending",
+        "days": [
+          "MON",
+          "TUE",
+          "WED"
+        ]
+      },
+      "sfx": [
+        {
+          "t": 0.55,
+          "type": "tap"
+        },
+        {
+          "t": 1.7,
+          "type": "flip"
+        },
+        {
+          "t": 2.6,
+          "type": "flip"
+        }
+      ],
+      "claims": [
+        "fund-days"
+      ],
+      "visual": "The same phone tries to buy into a fund. The button turns into Pending while a desk calendar flips from Monday to Wednesday."
+    },
+    {
+      "id": "friction",
+      "start": 6.25,
+      "end": 10.0,
+      "text": {
+        "words": [
+          "Forms.",
+          "ID checks.",
+          "Middlemen.",
+          "Waiting."
+        ]
+      },
+      "sfx": [
+        {
+          "t": 0.05,
+          "type": "stamp"
+        },
+        {
+          "t": 0.675,
+          "type": "stamp"
+        },
+        {
+          "t": 1.3,
+          "type": "stamp"
+        },
+        {
+          "t": 1.925,
+          "type": "stamp"
+        },
+        {
+          "t": 3.75,
+          "type": "riser"
+        }
+      ],
+      "claims": [
+        "today-friction"
+      ],
+      "visual": "Four tiles slam in on the beat: a form, an ID card, a row of people and an hourglass. A deal crawls along a tangled path between them."
+    },
+    {
+      "id": "reveal",
+      "start": 10.0,
+      "end": 13.75,
+      "text": {
+        "lines": [
+          "Redbelly is built to change that."
+        ],
+        "accent": [
+          "change that."
+        ]
+      },
+      "sfx": [
+        {
+          "t": 0.0,
+          "type": "zip"
+        },
+        {
+          "t": 1.25,
+          "type": "impact"
+        }
+      ],
+      "claims": [
+        "redbelly-purpose"
+      ],
+      "visual": "The tangled path pulls tight into one red line, folds into the hexagon of the Redbelly isotype, and the official logo resolves with a light ripple."
+    },
+    {
+      "id": "what",
+      "start": 13.75,
+      "end": 20.0,
+      "text": {
+        "lines": [
+          "A public network,",
+          "built in Australia,",
+          "where real-world",
+          "assets go digital."
+        ],
+        "accent": [
+          "real-world",
+          "assets"
+        ]
+      },
+      "ui": {
+        "pin": "Built in Australia"
+      },
+      "sfx": [
+        {
+          "t": 0.4,
+          "type": "swell"
+        }
+      ],
+      "claims": [
+        "public",
+        "australia",
+        "rwa"
+      ],
+      "visual": "A honeycomb network grows around the Redbelly isotype, with a bond, a loan, a fund, a building and a leaf in the cells around it."
+    },
+    {
+      "id": "assets",
+      "start": 20.0,
+      "end": 23.75,
+      "text": {
+        "words": [
+          "Bonds.",
+          "Loans.",
+          "Funds.",
+          "Property.",
+          "Carbon credits."
+        ]
+      },
+      "sfx": [
+        {
+          "t": 0.45,
+          "type": "pop",
+          "n": 0
+        },
+        {
+          "t": 0.76,
+          "type": "pop",
+          "n": 1
+        },
+        {
+          "t": 1.07,
+          "type": "pop",
+          "n": 2
+        },
+        {
+          "t": 1.39,
+          "type": "pop",
+          "n": 3
+        },
+        {
+          "t": 1.7,
+          "type": "pop",
+          "n": 4
+        }
+      ],
+      "claims": [
+        "asset-types"
+      ],
+      "visual": "The five asset hexagons glide into a row and each is named on the beat."
+    },
+    {
+      "id": "digital",
+      "start": 23.75,
+      "end": 27.5,
+      "text": {
+        "lines": [
+          "Ownership",
+          "becomes digital,",
+          "with the rules",
+          "written right in."
+        ],
+        "accent": [
+          "rules"
+        ]
+      },
+      "ui": {
+        "paper": "Certificate of ownership",
+        "card": "Digital ownership",
+        "rules": [
+          "Who owns it",
+          "Who can buy it",
+          "Holding limits"
+        ]
+      },
+      "sfx": [
+        {
+          "t": 0.65,
+          "type": "scan"
+        },
+        {
+          "t": 1.75,
+          "type": "tick",
+          "n": 0
+        },
+        {
+          "t": 2.0,
+          "type": "tick",
+          "n": 1
+        },
+        {
+          "t": 2.25,
+          "type": "tick",
+          "n": 2
+        }
+      ],
+      "claims": [
+        "rules-written-in"
+      ],
+      "visual": "A paper ownership certificate is scanned into a glowing digital card, and three rule chips slide out of it."
+    },
+    {
+      "id": "how",
+      "start": 27.5,
+      "end": 30.0,
+      "text": {
+        "lines": [
+          "Here's how it works."
+        ],
+        "accent": []
+      },
+      "ui": {
+        "steps": [
+          "Verified",
+          "Built-in rules",
+          "Final"
+        ]
+      },
+      "sfx": [
+        {
+          "t": 0.5,
+          "type": "pop",
+          "n": 0
+        },
+        {
+          "t": 0.75,
+          "type": "pop",
+          "n": 2
+        },
+        {
+          "t": 1.0,
+          "type": "pop",
+          "n": 4
+        },
+        {
+          "t": 2.05,
+          "type": "whoosh"
+        }
+      ],
+      "claims": [],
+      "visual": "Three numbered hexagons: Verified, Built-in rules, Final. The camera dives into the first."
+    },
+    {
+      "id": "verified",
+      "start": 30.0,
+      "end": 37.5,
+      "text": {
+        "number": "01",
+        "headline": [
+          "Everyone is",
+          "verified."
+        ],
+        "body": [
+          "Every person proves who they are",
+          "with a real passport check."
+        ],
+        "body2": [
+          "Their personal details",
+          "stay protected."
+        ]
+      },
+      "ui": {
+        "passport": "Passport",
+        "scan": "Face check",
+        "badge": "Verified",
+        "lock": "Details protected"
+      },
+      "sfx": [
+        {
+          "t": 1.45,
+          "type": "slide"
+        },
+        {
+          "t": 2.25,
+          "type": "scan"
+        },
+        {
+          "t": 3.45,
+          "type": "success"
+        },
+        {
+          "t": 4.6,
+          "type": "lock"
+        }
+      ],
+      "claims": [
+        "verified",
+        "passport",
+        "privacy"
+      ],
+      "visual": "A person in a hexagon gets a face check against a passport; a red verified badge pops on and the passport details blur behind a lock."
+    },
+    {
+      "id": "rules",
+      "start": 37.5,
+      "end": 45.0,
+      "text": {
+        "number": "02",
+        "headline": [
+          "The rules are",
+          "built in."
+        ],
+        "body": [
+          "Each asset knows who's",
+          "allowed to own it."
+        ],
+        "body2": [
+          "Rule-breaking trades",
+          "simply don't happen."
+        ]
+      },
+      "ui": {
+        "asset": "Property",
+        "assetSub": "Digital ownership",
+        "rules": [
+          "Verified ID",
+          "Eligible buyer"
+        ],
+        "ok": "Approved",
+        "no": "Not eligible"
+      },
+      "sfx": [
+        {
+          "t": 2.55,
+          "type": "tick",
+          "n": 0
+        },
+        {
+          "t": 2.8,
+          "type": "tick",
+          "n": 1
+        },
+        {
+          "t": 3.1,
+          "type": "success"
+        },
+        {
+          "t": 4.75,
+          "type": "deny"
+        }
+      ],
+      "claims": [
+        "eligibility",
+        "blocked"
+      ],
+      "visual": "A property card carries its own rules. A verified buyer passes and is approved; an unverified buyer bounces off the boundary."
+    },
+    {
+      "id": "final",
+      "start": 45.0,
+      "end": 52.5,
+      "text": {
+        "number": "03",
+        "headline": [
+          "Done means done."
+        ],
+        "body": [
+          "Money and ownership",
+          "swap in one step."
+        ],
+        "body2": [
+          "Final in seconds.",
+          "No take-backs."
+        ]
+      },
+      "ui": {
+        "money": "A$",
+        "asset": "Property",
+        "stamp": "Final",
+        "undo": "Undo"
+      },
+      "sfx": [
+        {
+          "t": 1.55,
+          "type": "whoosh"
+        },
+        {
+          "t": 2.4,
+          "type": "lock"
+        },
+        {
+          "t": 3.0,
+          "type": "stamp"
+        },
+        {
+          "t": 4.9,
+          "type": "deny"
+        }
+      ],
+      "claims": [
+        "one-step",
+        "finality"
+      ],
+      "visual": "Money and a property card swap places in one move, lock, and a ring closes into a FINAL stamp. An undo arrow is struck out."
+    },
+    {
+      "id": "science",
+      "start": 52.5,
+      "end": 60.0,
+      "text": {
+        "lines": [
+          "Developed at the",
+          "University of Sydney",
+          "and CSIRO, Australia's",
+          "science agency."
+        ],
+        "accent": [
+          "University of Sydney",
+          "CSIRO,"
+        ],
+        "lines2": [
+          "Its core design is",
+          "mathematically",
+          "proven correct."
+        ],
+        "accent2": [
+          "proven correct."
+        ]
+      },
+      "ui": {
+        "chips": [
+          "University of Sydney",
+          "CSIRO"
+        ],
+        "seal": "Proven correct"
+      },
+      "sfx": [
+        {
+          "t": 4.35,
+          "type": "swell"
+        },
+        {
+          "t": 6.0,
+          "type": "success"
+        }
+      ],
+      "claims": [
+        "research",
+        "proven"
+      ],
+      "visual": "A graph of states lights up, every node ticked in turn, ending on a Proven correct seal. University of Sydney and CSIRO chips sit above."
+    },
+    {
+      "id": "acacia",
+      "start": 60.0,
+      "end": 67.5,
+      "text": {
+        "label": "Project Acacia · 2025–26",
+        "lines": [
+          "Australia's central bank",
+          "issued trial digital",
+          "dollars on Redbelly,"
+        ],
+        "accent": [
+          "trial digital",
+          "dollars"
+        ],
+        "lines2": [
+          "the only public network",
+          "that carried them."
+        ],
+        "accent2": [
+          "only public network"
+        ]
+      },
+      "ui": {
+        "coin": "A$",
+        "networks": [
+          "Private network",
+          "Private network",
+          "Public network"
+        ],
+        "redbelly": "Redbelly"
+      },
+      "sfx": [
+        {
+          "t": 0.7,
+          "type": "coin"
+        },
+        {
+          "t": 1.6,
+          "type": "whoosh"
+        },
+        {
+          "t": 3.45,
+          "type": "success"
+        }
+      ],
+      "claims": [
+        "acacia-issued",
+        "acacia-only-public",
+        "acacia-dates"
+      ],
+      "visual": "An A$ coin from the central bank streams into three networks: two private, one public, Redbelly, which lights up."
+    },
+    {
+      "id": "result",
+      "start": 67.5,
+      "end": 72.5,
+      "text": {
+        "lead": "The result:",
+        "items": [
+          "Less paperwork.",
+          "Fewer middlemen.",
+          "Markets that never close."
+        ]
+      },
+      "ui": {
+        "clock": "24/7"
+      },
+      "sfx": [
+        {
+          "t": 0.45,
+          "type": "pop",
+          "n": 0
+        },
+        {
+          "t": 1.45,
+          "type": "pop",
+          "n": 2
+        },
+        {
+          "t": 2.55,
+          "type": "pop",
+          "n": 4
+        }
+      ],
+      "claims": [
+        "fewer-middlemen",
+        "always-open"
+      ],
+      "visual": "Three cards: a paper stack that thins out, middlemen who fade away, and a clock that never stops (24/7)."
+    },
+    {
+      "id": "bookend",
+      "start": 72.5,
+      "end": 77.5,
+      "text": {
+        "lines": [
+          "Ownership that moves like money:",
+          "fast, safe, and by the rules."
+        ],
+        "accent": [
+          "fast, safe, and by the rules."
+        ]
+      },
+      "ui": {
+        "left": "Money",
+        "leftDone": "Sent",
+        "right": "Ownership",
+        "rightDone": "Final"
+      },
+      "sfx": [
+        {
+          "t": 1.2,
+          "type": "success"
+        },
+        {
+          "t": 1.5,
+          "type": "success"
+        }
+      ],
+      "claims": [
+        "finality",
+        "verified",
+        "eligibility"
+      ],
+      "visual": "The opening line comes back: Money, Sent and Ownership, Final, side by side."
+    },
+    {
+      "id": "end",
+      "start": 77.5,
+      "end": 85.0,
+      "text": {
+        "tagline": [
+          "Verified people.",
+          "Built-in rules.",
+          "Final in seconds."
+        ],
+        "url": "redbelly.network"
+      },
+      "sfx": [
+        {
+          "t": 0.0,
+          "type": "impact"
+        }
+      ],
+      "claims": [
+        "verified",
+        "eligibility",
+        "finality"
+      ],
+      "visual": "The official Redbelly logo with the three ideas underneath and the web address."
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.25,
+      "end": 2.45,
+      "text": "You can send money in seconds."
+    },
+    {
+      "start": 2.6,
+      "end": 4.25,
+      "text": "But buying into a fund?"
+    },
+    {
+      "start": 4.25,
+      "end": 6.15,
+      "text": "That can still take days."
+    },
+    {
+      "start": 6.35,
+      "end": 9.9,
+      "text": "Forms. ID checks. Middlemen. Waiting."
+    },
+    {
+      "start": 10.1,
+      "end": 13.65,
+      "text": "Redbelly is built to change that."
+    },
+    {
+      "start": 13.9,
+      "end": 19.9,
+      "text": "A public network, built in Australia,\nwhere real-world assets go digital."
+    },
+    {
+      "start": 20.1,
+      "end": 23.65,
+      "text": "Bonds. Loans. Funds.\nProperty. Carbon credits."
+    },
+    {
+      "start": 23.85,
+      "end": 27.4,
+      "text": "Ownership becomes digital,\nwith the rules written right in."
+    },
+    {
+      "start": 27.6,
+      "end": 29.9,
+      "text": "Here's how it works."
+    },
+    {
+      "start": 30.1,
+      "end": 31.7,
+      "text": "One: everyone is verified."
+    },
+    {
+      "start": 31.75,
+      "end": 35.0,
+      "text": "Every person proves who they are\nwith a real passport check."
+    },
+    {
+      "start": 35.05,
+      "end": 37.4,
+      "text": "Their personal details stay protected."
+    },
+    {
+      "start": 37.6,
+      "end": 39.6,
+      "text": "Two: the rules are built in."
+    },
+    {
+      "start": 39.7,
+      "end": 42.35,
+      "text": "Each asset knows who's allowed\nto own it."
+    },
+    {
+      "start": 42.45,
+      "end": 44.9,
+      "text": "Rule-breaking trades simply don't happen."
+    },
+    {
+      "start": 45.1,
+      "end": 47.1,
+      "text": "Three: done means done."
+    },
+    {
+      "start": 47.2,
+      "end": 49.8,
+      "text": "Money and ownership swap in one step."
+    },
+    {
+      "start": 49.9,
+      "end": 52.4,
+      "text": "Final in seconds. No take-backs."
+    },
+    {
+      "start": 52.6,
+      "end": 54.5,
+      "text": "Developed at the\nUniversity of Sydney"
+    },
+    {
+      "start": 54.55,
+      "end": 56.8,
+      "text": "and CSIRO, Australia's\nscience agency."
+    },
+    {
+      "start": 56.85,
+      "end": 59.9,
+      "text": "Its core design is mathematically\nproven correct."
+    },
+    {
+      "start": 60.05,
+      "end": 63.4,
+      "text": "Australia's central bank issued\ntrial digital dollars on Redbelly,"
+    },
+    {
+      "start": 63.45,
+      "end": 67.4,
+      "text": "the only public network\nthat carried them, in Project Acacia."
+    },
+    {
+      "start": 67.6,
+      "end": 69.45,
+      "text": "The result: less paperwork."
+    },
+    {
+      "start": 69.5,
+      "end": 70.85,
+      "text": "Fewer middlemen."
+    },
+    {
+      "start": 70.9,
+      "end": 72.4,
+      "text": "Markets that never close."
+    },
+    {
+      "start": 72.6,
+      "end": 77.4,
+      "text": "Ownership that moves like money:\nfast, safe, and by the rules."
+    },
+    {
+      "start": 77.7,
+      "end": 81.1,
+      "text": "Redbelly.\nVerified people. Built-in rules."
+    },
+    {
+      "start": 81.15,
+      "end": 84.8,
+      "text": "Final in seconds.\nredbelly.network"
+    }
+  ],
+  "claims": [
+    {
+      "id": "fund-days",
+      "text": "Buying into a fund can still take days to settle.",
+      "evidence": [
+        {
+          "source": "tk-settlement",
+          "quote": "Every subscription, redemption and transfer remains unsettled for two business days in listed funds, and often longer in private assets."
+        }
+      ]
+    },
+    {
+      "id": "today-friction",
+      "text": "Today that involves paperwork, repeated ID checks, middlemen and waiting.",
+      "evidence": [
+        {
+          "source": "tk-compliance",
+          "quote": "Investor eligibility, holder limits and transfer restrictions are typically managed through spreadsheets, emails and manual sign-offs."
+        },
+        {
+          "source": "rb-tokenisation",
+          "quote": "Reusable client identity and KYC credentials streamline onboarding and reduce duplication"
+        },
+        {
+          "source": "rb-tokenisation",
+          "quote": "Lower intermediaries and automate issuance, settlement and compliance"
+        },
+        {
+          "source": "tk-settlement",
+          "quote": "Every subscription, redemption and transfer remains unsettled for two business days in listed funds, and often longer in private assets."
+        }
+      ]
+    },
+    {
+      "id": "redbelly-purpose",
+      "text": "Redbelly is built to issue, manage and trade assets digitally, with compliance built in.",
+      "evidence": [
+        {
+          "source": "rb-home",
+          "quote": "Redbelly provides the infrastructure to issue, manage, and distribute regulated digital financial assets to a global investor base."
+        },
+        {
+          "source": "rb-tokenisation",
+          "quote": "Asset issuers can issue and distribute products globally, with compliance built into the infrastructure"
+        }
+      ]
+    },
+    {
+      "id": "public",
+      "text": "Redbelly is a public network.",
+      "evidence": [
+        {
+          "source": "tk-technology",
+          "quote": "Redbelly is a public network"
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "including Canvas Connect (private), Ethereum (public), Hedera (both public and private instances), Redbelly Network (public) and XRP Ledger (public)"
+        }
+      ]
+    },
+    {
+      "id": "australia",
+      "text": "Redbelly was built in Australia.",
+      "evidence": [
+        {
+          "source": "rb-abs-pilot",
+          "quote": "Redbelly is an Australian-developed, high-performance"
+        },
+        {
+          "source": "tk-home",
+          "quote": "Tokeniser operates on Redbelly Network, Australia's public digital token infrastructure, with identity and eligibility built into the protocol."
+        }
+      ]
+    },
+    {
+      "id": "rwa",
+      "text": "On Redbelly, real-world assets are issued, managed and traded in digital form.",
+      "evidence": [
+        {
+          "source": "rb-home",
+          "quote": "Redbelly provides the infrastructure to issue, manage, and distribute regulated digital financial assets to a global investor base."
+        }
+      ]
+    },
+    {
+      "id": "asset-types",
+      "text": "These assets include bonds, loans, funds, property and carbon credits.",
+      "evidence": [
+        {
+          "source": "rb-home",
+          "quote": "TREASURIES & BONDS"
+        },
+        {
+          "source": "rb-home",
+          "quote": "PRIVATE CREDIT"
+        },
+        {
+          "source": "rb-home",
+          "quote": "CARBON CREDITS"
+        },
+        {
+          "source": "rb-home",
+          "quote": "REAL ESTATE"
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "issuance, trading and redemption of tokenised units in a wholesale managed investment scheme, with registration and distribution handled through the Tokeniser platform."
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "network used in use cases: Redbelly Network."
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "a tokenised structured finance security backed by loans"
+        }
+      ]
+    },
+    {
+      "id": "rules-written-in",
+      "text": "Ownership is recorded digitally, with the asset's rules programmed in.",
+      "evidence": [
+        {
+          "source": "tk-home",
+          "quote": "Tokenisation records ownership of financial products and services as digital tokens, and lets you program the rules of the asset."
+        },
+        {
+          "source": "rb-tokenisation",
+          "quote": "Asset issuers can issue and distribute products globally, with compliance built into the infrastructure"
+        }
+      ]
+    },
+    {
+      "id": "verified",
+      "text": "Everyone taking part must prove who they are before they can act on the network.",
+      "evidence": [
+        {
+          "source": "vine-identity",
+          "quote": "all network participants MUST prove they are who they say they are before gaining access"
+        }
+      ]
+    },
+    {
+      "id": "passport",
+      "text": "People prove their identity with a passport, checked with biometrics.",
+      "evidence": [
+        {
+          "source": "vine-access",
+          "quote": "prove they possess a valid photo identity document (passport) which is verified via biometric checks"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "text": "Personal details stay protected.",
+      "evidence": [
+        {
+          "source": "rb-acacia",
+          "quote": "Participants verify their identities, but their privacy remains protected through zero-knowledge proofs."
+        },
+        {
+          "source": "vine-eligibility",
+          "quote": "minimises their data exposure"
+        }
+      ]
+    },
+    {
+      "id": "eligibility",
+      "text": "Each asset sets who is allowed to hold it, and this is enforced at the point of trade.",
+      "evidence": [
+        {
+          "source": "rb-tokenisation",
+          "quote": "defined investor eligibility, enforced at the point of trade"
+        },
+        {
+          "source": "vine-eligibility",
+          "quote": "only users that can prove they meet the criteria can interact with a smart contract's functions"
+        }
+      ]
+    },
+    {
+      "id": "blocked",
+      "text": "Trades that break the rules do not go through.",
+      "evidence": [
+        {
+          "source": "tk-compliance",
+          "quote": "Trades that fail a check do not proceed"
+        },
+        {
+          "source": "rb-tokenisation",
+          "quote": "defined investor eligibility, enforced at the point of trade"
+        }
+      ]
+    },
+    {
+      "id": "one-step",
+      "text": "Money and ownership change hands in a single step.",
+      "evidence": [
+        {
+          "source": "rb-abs-pilot",
+          "quote": "Its deterministic consensus unifies payments and asset ledgers into a single system"
+        },
+        {
+          "source": "tk-settlement",
+          "quote": "cash and units are exchanged in a single step"
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "Both the tokenised bond and the wCBDC were issued on to the same network."
+        }
+      ]
+    },
+    {
+      "id": "finality",
+      "text": "Transactions are final within seconds and cannot be reversed.",
+      "evidence": [
+        {
+          "source": "vine-consensus",
+          "quote": "transactions can be deterministically finalised in a matter of seconds"
+        },
+        {
+          "source": "rb-tokenisation",
+          "quote": "Deterministic finality ensures transactions are confirmed once and cannot be reversed"
+        },
+        {
+          "source": "tk-technology",
+          "quote": "Deterministic finality settles a transaction in a single round, final the moment it completes."
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "text": "Redbelly was developed at the University of Sydney and CSIRO, Australia's national science agency.",
+      "evidence": [
+        {
+          "source": "rb-acacia",
+          "quote": "Developed at the University of Sydney and CSIRO"
+        },
+        {
+          "source": "tk-technology",
+          "quote": "developed from research at the University of Sydney and CSIRO, Australia's government science agency"
+        },
+        {
+          "source": "rb-ecosystem",
+          "quote": "Australia's national science agency"
+        }
+      ]
+    },
+    {
+      "id": "proven",
+      "text": "Its core design, the way the network agrees on every transaction, is mathematically proven correct.",
+      "evidence": [
+        {
+          "source": "vine-consensus",
+          "quote": "DBFT has been formally verified meaning that a rigorous mathematical proof has been performed to demonstrate the algorithm's correctness"
+        },
+        {
+          "source": "tk-technology",
+          "quote": "Redbelly's consensus is proven correct by model checking"
+        },
+        {
+          "source": "rb-about",
+          "quote": "Formal Verification of the DBFT Consensus Protocol"
+        }
+      ]
+    },
+    {
+      "id": "acacia-issued",
+      "text": "In Project Acacia, Australia's central bank issued trial digital dollars (pilot wholesale CBDC) on Redbelly.",
+      "evidence": [
+        {
+          "source": "rba-acacia-report",
+          "quote": "Use cases used three of the short-listed"
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "platforms for their experimentation with pilot wCBDC: Australian Payments Plus's (AP+) HashSphere instance (a private Hedera-based ledger), Canvas Connect"
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "and Redbelly Network (a public-permissioned"
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "represented a real legal claim on the RBA"
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "Australian Bond Exchange piloted secondary market transactions involving the purchase of a tokenised corporate bond digital twin using wCBDC as the settlement asset."
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "network used in use case: Redbelly Network."
+        },
+        {
+          "source": "tk-technology",
+          "quote": "It has settled a tokenised corporate bond in the Reserve Bank of Australia's pilot wholesale CBDC as part of Project Acacia."
+        },
+        {
+          "source": "rb-about",
+          "quote": "Selected to participate in RBA Project Acacia"
+        }
+      ]
+    },
+    {
+      "id": "acacia-only-public",
+      "text": "Of the three networks that carried the trial digital dollars, Redbelly was the only public one.",
+      "evidence": [
+        {
+          "source": "rba-acacia-report",
+          "quote": "Use cases used three of the short-listed"
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "platforms for their experimentation with pilot wCBDC: Australian Payments Plus's (AP+) HashSphere instance (a private Hedera-based ledger), Canvas Connect"
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "and Redbelly Network (a public-permissioned"
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "including Canvas Connect (private), Ethereum (public), Hedera (both public and private instances), Redbelly Network (public) and XRP Ledger (public)"
+        }
+      ]
+    },
+    {
+      "id": "acacia-dates",
+      "text": "Project Acacia's experiments ran in 2025 and 2026, and its pilots used real money.",
+      "evidence": [
+        {
+          "source": "rba-acacia-report",
+          "quote": "completed experimentation between August 2025 and February 2026"
+        },
+        {
+          "source": "rba-acacia-report",
+          "quote": "12 pilot use cases, which involved real money and real asset transactions"
+        }
+      ]
+    },
+    {
+      "id": "fewer-middlemen",
+      "text": "Less paperwork and fewer middlemen.",
+      "evidence": [
+        {
+          "source": "rb-tokenisation",
+          "quote": "Lower intermediaries and automate issuance, settlement and compliance"
+        }
+      ]
+    },
+    {
+      "id": "always-open",
+      "text": "Markets that never close.",
+      "evidence": [
+        {
+          "source": "rb-tokenisation",
+          "quote": "Access a larger investor base unlocked by borderless 24/7 markets"
+        },
+        {
+          "source": "tk-always-on",
+          "quote": "Your fund operates without market hours or cut-offs."
+        }
+      ]
+    }
+  ]
+}

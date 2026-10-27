@@ -1,0 +1,184 @@
+{
+  "accessed": "2026-10-27",
+  "note": "Every quote below is copied word for word from the linked page. Square-bracket ellipses [...] mark words left out of a quote. tools/check-sources.mjs re-reads each live page and confirms every quote is still there.",
+  "sources": [
+    {
+      "id": "rb-home",
+      "publisher": "Redbelly Network",
+      "title": "Redbelly Network: home page",
+      "url": "https://redbelly.network",
+      "quotes": [
+        "Redbelly provides the infrastructure to issue, manage, and distribute regulated digital financial assets to a global investor base.",
+        "TREASURIES & BONDS",
+        "PRIVATE CREDIT",
+        "CARBON CREDITS",
+        "REAL ESTATE"
+      ]
+    },
+    {
+      "id": "rb-tokenisation",
+      "publisher": "Redbelly Network",
+      "title": "Asset Tokenisation",
+      "url": "https://redbelly.network/asset-tokenisation",
+      "quotes": [
+        "Asset issuers can issue and distribute products globally, with compliance built into the infrastructure",
+        "defined investor eligibility, enforced at the point of trade",
+        "Deterministic finality ensures transactions are confirmed once and cannot be reversed",
+        "Lower intermediaries and automate issuance, settlement and compliance",
+        "Access a larger investor base unlocked by borderless 24/7 markets",
+        "Reusable client identity and KYC credentials streamline onboarding and reduce duplication"
+      ]
+    },
+    {
+      "id": "rb-acacia",
+      "publisher": "Redbelly Network",
+      "title": "Redbelly Project Acacia",
+      "url": "https://redbelly.network/projectacacia",
+      "quotes": [
+        "Developed at the University of Sydney and CSIRO",
+        "Participants verify their identities, but their privacy remains protected through zero-knowledge proofs."
+      ]
+    },
+    {
+      "id": "rb-about",
+      "publisher": "Redbelly Network",
+      "title": "About Us: Redbelly Journey timeline",
+      "url": "https://redbelly.network/about-us",
+      "quotes": [
+        "Formal Verification of the DBFT Consensus Protocol",
+        "Selected to participate in RBA Project Acacia"
+      ]
+    },
+    {
+      "id": "rb-ecosystem",
+      "publisher": "Redbelly Network",
+      "title": "Ecosystem: CSIRO entry",
+      "url": "https://redbelly.network/ecosystem",
+      "quotes": [
+        "Australia's national science agency"
+      ]
+    },
+    {
+      "id": "rb-abs-pilot",
+      "publisher": "Redbelly Network",
+      "title": "Tokenised asset-backed security transaction pilot launches under Project Acacia (11 December 2025)",
+      "url": "https://redbelly.network/blog/tokenised-asset-backed-security-transaction-pilot-launches-under-Project-Acacia",
+      "quotes": [
+        "Redbelly is an Australian-developed, high-performance",
+        "Its deterministic consensus unifies payments and asset ledgers into a single system"
+      ]
+    },
+    {
+      "id": "vine-identity",
+      "publisher": "Redbelly Network developer portal (Vine)",
+      "title": "Identity and participation on the network",
+      "url": "https://vine.redbelly.network/identity/",
+      "quotes": [
+        "all network participants MUST prove they are who they say they are before gaining access"
+      ]
+    },
+    {
+      "id": "vine-access",
+      "publisher": "Redbelly Network developer portal (Vine)",
+      "title": "Accessing Redbelly Network",
+      "url": "https://vine.redbelly.network/identity/user-access/",
+      "quotes": [
+        "prove they possess a valid photo identity document (passport) which is verified via biometric checks"
+      ]
+    },
+    {
+      "id": "vine-eligibility",
+      "publisher": "Redbelly Network developer portal (Vine)",
+      "title": "Eligibility on Redbelly",
+      "url": "https://vine.redbelly.network/identity/eligibility/",
+      "quotes": [
+        "only users that can prove they meet the criteria can interact with a smart contract's functions",
+        "minimises their data exposure"
+      ]
+    },
+    {
+      "id": "vine-consensus",
+      "publisher": "Redbelly Network developer portal (Vine)",
+      "title": "DBFT and super block: security, finality and scalability",
+      "url": "https://vine.redbelly.network/consensus/",
+      "quotes": [
+        "DBFT has been formally verified meaning that a rigorous mathematical proof has been performed to demonstrate the algorithm's correctness",
+        "transactions can be deterministically finalised in a matter of seconds"
+      ]
+    },
+    {
+      "id": "tk-home",
+      "publisher": "Tokeniser (a Redbelly Network project)",
+      "title": "Tokeniser: home page and FAQ",
+      "url": "https://tokeniser.com",
+      "quotes": [
+        "Tokenisation records ownership of financial products and services as digital tokens, and lets you program the rules of the asset.",
+        "Tokeniser operates on Redbelly Network, Australia's public digital token infrastructure, with identity and eligibility built into the protocol."
+      ]
+    },
+    {
+      "id": "tk-technology",
+      "publisher": "Tokeniser (a Redbelly Network project)",
+      "title": "Our Technology",
+      "url": "https://tokeniser.com/technology",
+      "quotes": [
+        "Redbelly is a public network",
+        "Redbelly's consensus is proven correct by model checking",
+        "developed from research at the University of Sydney and CSIRO, Australia's government science agency",
+        "It has settled a tokenised corporate bond in the Reserve Bank of Australia's pilot wholesale CBDC as part of Project Acacia.",
+        "Deterministic finality settles a transaction in a single round, final the moment it completes."
+      ]
+    },
+    {
+      "id": "tk-settlement",
+      "publisher": "Tokeniser (a Redbelly Network project)",
+      "title": "Instant Settlement",
+      "url": "https://tokeniser.com/product/superpowers/instant-settlement",
+      "quotes": [
+        "Every subscription, redemption and transfer remains unsettled for two business days in listed funds, and often longer in private assets.",
+        "cash and units are exchanged in a single step"
+      ]
+    },
+    {
+      "id": "tk-compliance",
+      "publisher": "Tokeniser (a Redbelly Network project)",
+      "title": "Automated Compliance",
+      "url": "https://tokeniser.com/product/superpowers/automated-compliance",
+      "quotes": [
+        "Investor eligibility, holder limits and transfer restrictions are typically managed through spreadsheets, emails and manual sign-offs.",
+        "Trades that fail a check do not proceed"
+      ]
+    },
+    {
+      "id": "tk-always-on",
+      "publisher": "Tokeniser (a Redbelly Network project)",
+      "title": "Always-On",
+      "url": "https://tokeniser.com/product/superpowers/always-on",
+      "quotes": [
+        "Your fund operates without market hours or cut-offs."
+      ]
+    },
+    {
+      "id": "rba-acacia-report",
+      "publisher": "Reserve Bank of Australia and Digital Finance Cooperative Research Centre",
+      "title": "Project Acacia: Exploring the role of digital money in wholesale tokenised asset markets. Final Report (May 2026)",
+      "url": "https://www.rba.gov.au/payments-and-infrastructure/central-bank-digital-currency/pdf/project-acacia-final-report.pdf",
+      "pdf": true,
+      "quotes": [
+        "completed experimentation between August 2025 and February 2026",
+        "12 pilot use cases, which involved real money and real asset transactions",
+        "including Canvas Connect (private), Ethereum (public), Hedera (both public and private instances), Redbelly Network (public) and XRP Ledger (public)",
+        "Use cases used three of the short-listed",
+        "platforms for their experimentation with pilot wCBDC: Australian Payments Plus's (AP+) HashSphere instance (a private Hedera-based ledger), Canvas Connect",
+        "and Redbelly Network (a public-permissioned",
+        "represented a real legal claim on the RBA",
+        "Australian Bond Exchange piloted secondary market transactions involving the purchase of a tokenised corporate bond digital twin using wCBDC as the settlement asset.",
+        "Both the tokenised bond and the wCBDC were issued on to the same network.",
+        "network used in use case: Redbelly Network.",
+        "issuance, trading and redemption of tokenised units in a wholesale managed investment scheme, with registration and distribution handled through the Tokeniser platform.",
+        "network used in use cases: Redbelly Network.",
+        "a tokenised structured finance security backed by loans"
+      ]
+    }
+  ]
+}
