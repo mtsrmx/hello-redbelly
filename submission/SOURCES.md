@@ -22,3 +22,11 @@ Every fact in *Redbelly, made simple* comes from the public pages below. All wer
 | 16 | [Project Acacia: Exploring the role of digital money in wholesale tokenised asset markets. Final Report (May 2026)](https://www.rba.gov.au/payments-and-infrastructure/central-bank-digital-currency/pdf/project-acacia-final-report.pdf) | Reserve Bank of Australia and Digital Finance Cooperative Research Centre | Redbelly is a public network; These assets include bonds, loans, funds, property and carbon credits; Money and ownership change hands in a single step; In Project Acacia, Australia's central bank issued trial digital dollars (pilot wholesale CBDC) on Redbelly; Of the three networks that carried the trial digital dollars, Redbelly was the only public one; Project Acacia's experiments ran in 2025 and 2026, and its pilots used real money |
 
 The Redbelly brand kit at [redbelly.network/brand](https://redbelly.network/brand) supplied the logos, the Readex Pro typeface and the colour palette.
+
+## Media and licences
+
+| Element | Source and licence |
+|---|---|
+| Narration | Synthetic voice generated with Chatterbox by Resemble AI, using its built-in default voice (no one's voice is cloned). MIT licence, which allows commercial use. It reads the film's own fact-checked subtitles. https://huggingface.co/ResembleAI/chatterbox |
+| Music and sound effects | Original, synthesised for this film from code (audio/compose.py). No samples, loops or stock music. |
+| Typeface | Readex Pro, SIL Open Font License 1.1, as linked from the Redbelly brand kit. https://fonts.google.com/specimen/Readex+Pro |

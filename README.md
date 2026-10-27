@@ -27,6 +27,7 @@
   <img src="https://img.shields.io/badge/length-85%20s%20(limit%2090)-FF5050" alt="85 seconds">
   <img src="https://img.shields.io/badge/video-1080p%20%C2%B7%2016%3A9%20%2B%209%3A16%20%C2%B7%2030%20fps-283A46" alt="1080p, 16:9 and 9:16, 30 fps">
   <img src="https://img.shields.io/badge/subtitles-burned%20in%20%2B%20SRT%20%2B%20VTT-283A46" alt="Subtitles burned in plus SRT and VTT">
+  <img src="https://img.shields.io/badge/narration-licensed%20voice%20(MIT)-283A46" alt="Narration with a licensed voice">
   <img src="https://img.shields.io/badge/music-original%2C%20synthesised-283A46" alt="Original music">
   <img src="https://img.shields.io/badge/checks-passing-283A46" alt="Checks passing">
 </p>
@@ -47,7 +48,7 @@ It opens on something everyone knows. Sending money takes seconds, but buying in
 
 It closes on why you can trust it (University of Sydney and CSIRO research, a core design that is mathematically proven correct, and Australia's central bank issuing trial digital dollars on Redbelly in Project Acacia) and why it matters: less paperwork, fewer middlemen, and markets that never close.
 
-The words on screen carry the whole story, so it works with the sound off, which is how most people meet a video on X. The same words ship as subtitle files.
+A narrator reads every line, and the words on screen carry the whole story, so it works with the sound on or off; most people meet a video on X muted. The same words ship as subtitle files.
 
 ## Deliverables
 
@@ -72,9 +73,9 @@ Also in [`submission/`](submission):
 | Every fact about Redbelly is correct | 22 claims, each backed by word-for-word quotes from Redbelly, Tokeniser and the RBA's Project Acacia report | `npm run verify`, `npm run check-sources` |
 | The banned word or a stand-in appears nowhere, including captions and on-screen text | Everything visible on screen is sampled four times a second in both formats and scanned, along with the subtitles and the file metadata. The scan covers the banned word, the two stand-ins the brief names and 13 further jargon patterns. Nothing in the repository contains the banned word or the two named stand-ins either. | `npm run verify` |
 | No price talk, investment advice or promises of returns | No prices, amounts, tickers, returns or calls to buy | `npm run verify` |
-| No unlicensed music, images or footage | Original synthesised score and sound effects, original icons and animation, official logo files from the Redbelly brand kit, and the OFL-licensed brand font. See [`docs/ASSETS.md`](docs/ASSETS.md) | `npm run verify` (logo hashes, asset list) |
-| No AI text submitted without checking | Every sentence was checked against the sources, the quotes are verbatim, and the live pages are re-read to confirm them | `npm run check-sources` |
-| No personal credit inside the deliverable | No names, handles, signatures, watermarks or "made by" lines in the film, subtitles or file metadata | `npm run verify` |
+| No unlicensed music, images or footage | Original synthesised score and sound effects; narration generated with [Chatterbox](https://huggingface.co/ResembleAI/chatterbox) by Resemble AI under the MIT licence (commercial use allowed), using its built-in voice with no one cloned; original icons and animation; official logo files from the Redbelly brand kit; the OFL-licensed brand font. See [`docs/ASSETS.md`](docs/ASSETS.md) | `npm run verify` (logo hashes, asset list, narration licence) |
+| No AI text submitted without checking | Every sentence was checked against the sources, the quotes are verbatim, and the live pages are re-read to confirm them. The narration reads those same words, and speech recognition confirms every line, word for word | `npm run check-sources`, `npm run verify` |
+| No personal credit inside the deliverable | No names, handles, signatures, credit watermarks or "made by" lines in the film, subtitles, narration or file metadata. The narration carries Chatterbox's inaudible marker that flags it as synthetic speech; it names no one | `npm run verify` |
 | Not posted publicly before judging | The review site sends `noindex, nofollow`, disallows crawlers in `robots.txt` and is not linked from anywhere | `vercel.json`, `robots.txt` |
 
 ## Specifications
@@ -88,6 +89,7 @@ Also in [`submission/`](submission):
 | Video | H.264 High, yuv420p, BT.709, fast start | same |
 | Audio | AAC 48 kHz stereo, 256 kb/s, -14 LUFS integrated, true peak below -1 dBTP | same |
 | Subtitles | Burned in, plus `redbelly-made-simple.en.srt` and `.en.vtt` | same files |
+| Narration | Every subtitle read aloud, music ducked under the voice | same |
 
 Measured values for every file are in [`docs/VERIFICATION.md`](docs/VERIFICATION.md).
 
@@ -118,7 +120,8 @@ npm run check-sources         # re-reads every live source page and confirms eac
 - **Facts**: every factual scene cites claims, every claim has quotes, every quote belongs to a listed source.
 - **Captions**: SRT and VTT match the script, cues never overlap, stay within two lines of 42 characters and 20 characters per second, and the words of every cue are visible in the picture while the cue is shown.
 - **Video**: container, codecs, resolution, frame rate, length, colour tags, fast start, loudness and true peak, measured with `ffprobe` and the EBU R128 meter.
-- **Rules**: no personal credit, no price talk, only `redbelly.network` on screen, logo files byte-identical to the brand pack, brand font and colours, and every asset listed with its licence.
+- **Narration**: every subtitle is spoken once and in order, while it is on screen, without overlaps; speech recognition hears every line word for word, both in the recorded takes and in the finished films (`audio/check_mix.py`); no line is sped up by more than 12%.
+- **Rules**: no personal credit, no price talk, only `redbelly.network` on screen, logo files byte-identical to the brand pack, brand font and colours, every asset listed with its licence, and the narration voice licensed for commercial use.
 
 ## How it was made
 
@@ -127,7 +130,8 @@ content/script.json ──► composition/ (HTML, SVG and canvas scenes, a pure 
         │                     │
         │                     └─► tools/render.mjs: headless Chromium draws each frame at an exact time,
         │                         lossless capture, one H.264 encode with the soundtrack
-        ├─► audio/compose.py: original score and effects, timed to the same cues
+        ├─► audio/voice.py: narration of every subtitle (Chatterbox), each take checked by speech recognition
+        ├─► audio/compose.py: original score and effects, timed to the same cues, mixed under the narration
         ├─► tools/captions.mjs: SRT and WebVTT
         ├─► tools/docs.mjs: SOURCES, SCRIPT, FACT-CHECK, the PDF pack, posters and thumbnails
         └─► tools/verify.mjs: the checks above
@@ -135,7 +139,8 @@ content/script.json ──► composition/ (HTML, SVG and canvas scenes, a pure 
 
 - **Brand.** Readex Pro throughout, the brand palette (#FF5050 and #283A46 with the secondary colours), the hexagon from the isotype as the visual motif, the labels with a red rule from the brand manual, and the official logo files, untouched. See [`docs/ASSETS.md`](docs/ASSETS.md).
 - **Animation.** Every element is a function of time, so the film renders identically every time and also plays live in a browser: open [`composition/`](composition/) and press space.
-- **Sound.** A 96 BPM score in A minor that resolves to C major when Redbelly appears, with sound effects on the beat. It is generated from sine waves, band-limited saw waves and filtered noise; no samples or recordings are used.
+- **Narration.** A synthetic voice, [Chatterbox](https://huggingface.co/ResembleAI/chatterbox) by Resemble AI (MIT licence) with its built-in voice, reads the subtitles. Each line is recorded at least twice; the take that speech recognition hears word for word and that fits its subtitle is kept. "CSIRO" is said letter by letter and the web address as "Redbelly dot network".
+- **Sound.** A 96 BPM score in A minor that resolves to C major when Redbelly appears, with sound effects on the beat. It is generated from sine waves, band-limited saw waves and filtered noise; no samples or recordings are used. The music dips by 9 dB while the narrator speaks.
 
 ## Build it yourself
 
@@ -151,6 +156,15 @@ npm run preview        # http://127.0.0.1:8080 for the review site and the live 
 ```
 
 Each step also runs on its own: `npm run captions`, `npm run audio`, `npm run render:16x9`, `npm run render:9x16`, `npm run docs`, `npm run verify`, `npm run stills -- 12.6 33.6` (still frames for review).
+
+The recorded narration is in `audio/voice/`, so the steps above do not need the voice model. To record it again after a script change, use Python 3.11 (a CPU is enough):
+
+```bash
+python3.11 -m venv .voice && .voice/bin/pip install -r audio/voice-requirements.txt
+VOICE_PYTHON=.voice/bin/python npm run voice      # record every line, keep the best take
+npm run mix                                       # new soundtrack into both films, no re-render
+VOICE_PYTHON=.voice/bin/python npm run check-mix  # confirm the narration is understood in the films
+```
 
 ## Review site and deploying
 
@@ -175,7 +189,7 @@ Each step also runs on its own: `npm run captions`, `npm run audio`, `npm run re
 </p>
 
 - **Live:** [redbelly-made-simple.vercel.app](https://redbelly-made-simple.vercel.app)
-- **Vercel:** import the repository with the *Other* framework preset. There is no build step; the repository root is the site. [`vercel.json`](vercel.json) adds `noindex` headers and correct subtitle content types.
+- **Vercel:** import the repository with the *Other* framework preset and leave *Root Directory* empty. There is no build step; the repository root is the site. [`vercel.json`](vercel.json) adds `noindex` headers and correct subtitle content types.
 - **Any static host:** upload the repository as it is, or run `npm run preview` locally.
 
 The site is for the judges. It is marked `noindex, nofollow` and should not be shared publicly before the DAO announces a winner.
@@ -195,7 +209,7 @@ A public network, built in Australia, where real-world assets go digital, with t
 85 seconds, sound optional 👇
 ```
 
-- **X:** upload the 16:9 file for the timeline, or the 9:16 file for full-screen viewing on phones. Both are under X's 512 MB and 2:20 limits. Subtitles are burned in, so the film reads with the sound off.
+- **X:** upload the 16:9 file for the timeline, or the 9:16 file for full-screen viewing on phones. Both are under X's 512 MB and 2:20 limits. It is narrated, and the subtitles are burned in, so it also reads with the sound off.
 - **YouTube, LinkedIn and others:** upload the 16:9 file and add `redbelly-made-simple.en.srt` as a caption track for search and accessibility.
 
 ## Repository layout
@@ -208,7 +222,7 @@ A public network, built in Australia, where real-world assets go digital, with t
 │   ├── script.json          Scenes, on-screen words, subtitles, claims and sound cues
 │   └── sources.json         Public sources with word-for-word quotes
 ├── composition/             The film as code: engine, scenes, styles, brand assets, live player
-├── audio/compose.py         Original score and sound effects
+├── audio/                   compose.py (score, effects, final mix), voice.py and voice/ (narration), check_mix.py
 ├── tools/                   render, captions, docs, verify, check-sources, stills, serve
 ├── docs/                    ASSETS.md (licences), VERIFICATION.md and verification.json
 ├── vercel.json, robots.txt  Hosting headers and crawler rules

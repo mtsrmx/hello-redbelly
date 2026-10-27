@@ -17,6 +17,8 @@ async function shoot(name, { width, height, scale = 1, section, full = false }) 
   const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: scale });
   await page.goto(base, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
+  // Hide the browser's player controls, whose loading spinner would otherwise sit on the poster.
+  await page.evaluate(() => document.querySelectorAll('video').forEach((v) => v.removeAttribute('controls')));
   await page.waitForTimeout(400);
   if (section) {
     await page.addStyleTag({ content: '.top { position: static !important; }' });

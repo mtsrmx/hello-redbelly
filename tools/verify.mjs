@@ -14,7 +14,10 @@
 //                  the words burned into the picture at that moment.
 //   4. Video     - MP4, H.264 High, yuv420p, 1080p or higher, 30 fps, at most 90 s,
 //                  AAC stereo, BT.709 tags, fast start, -14 LUFS and true peak.
-//   5. Rules     - no personal credit, no price talk or investment advice, official
+//   5. Narration - the voice reads every subtitle in order, while it is on screen,
+//                  word for word (speech recognition on each line and on the
+//                  finished films), from a commercially licensed voice model.
+//   6. Rules     - no personal credit, no price talk or investment advice, official
 //                  logo files untouched, brand font and colours, licensed assets.
 import { chromium } from 'playwright';
 import { spawnSync } from 'node:child_process';
@@ -29,6 +32,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 const script = JSON.parse(read('content/script.json'));
 const sources = JSON.parse(read('content/sources.json'));
+const VOICE = fs.existsSync(path.join(ROOT, 'audio/voice/lines.json')) ? JSON.parse(read('audio/voice/lines.json')) : null;
 const WRITE = process.argv.includes('--write');
 
 // ---------------------------------------------------------------------------
@@ -116,6 +120,8 @@ function scriptDisplayStrings() {
   }
   script.chapters.forEach((c) => out.push({ where: 'chapter label', text: c.label }));
   script.captions.forEach((c, i) => out.push({ where: `caption ${i + 1}`, text: c.text }));
+  script.captions.forEach((c, i) => c.say && out.push({ where: `caption ${i + 1} as spoken`, text: c.say }));
+  (VOICE?.lines || []).forEach((l) => out.push({ where: `narration line ${l.n + 1}`, text: l.say }));
   return out;
 }
 
@@ -235,7 +241,7 @@ async function main() {
 
   let hits = scan(entryTexts, BANNED);
   check('Wording', 'The banned word and the two stand-ins the brief names never appear in the entry', hits.length === 0,
-    hits.length ? hits.join('; ') : `${display.length} script strings, ${distinctScreen} distinct on-screen strings and both subtitle files scanned`);
+    hits.length ? hits.join('; ') : `${display.length} script and narration strings, ${distinctScreen} distinct on-screen strings and both subtitle files scanned`);
   hits = scan(entryTexts, STAND_INS);
   check('Wording', 'No other stand-ins or jargon (ledger, chain, crypto, token, node, consensus and more)', hits.length === 0,
     hits.length ? hits.join('; ') : `${STAND_INS.length} jargon patterns, none found`);
@@ -344,7 +350,38 @@ async function main() {
     specRows.push({ ar: v.ar, res: `${vs.width} x ${vs.height}`, fps: fmt(fps, 2), dur: fmt(dur, 2), loud: `${fmt(L.I)} LUFS / ${fmt(L.TP)} dBTP`, size: `${fmt(size / 1024 / 1024)} MB`, br: `${Math.round(Number(p.format.bit_rate) / 1000)} kb/s` });
   }
 
-  // 5. Rules -------------------------------------------------------------------
+  // 5. Narration ---------------------------------------------------------------
+  check('Narration', 'Narration has been recorded', VOICE && VOICE.lines.length, VOICE ? `${VOICE.lines.length} lines in audio/voice/lines.json` : 'run audio/voice.py');
+  if (VOICE) {
+    const L = VOICE.lines;
+    const R = VOICE.rules;
+    const covered = L.flatMap((l) => l.captions);
+    check('Narration', 'Every subtitle is spoken, once and in order', covered.length === caps.length && covered.every((c, i) => c === i), `${caps.length} subtitles in ${L.length} spoken lines`);
+    const said = (i) => caps[i].say || caps[i].text;
+    const stale = L.filter((l) => l.text !== l.captions.map((i) => caps[i].text.replace(/\n/g, ' ')).join(' ') || l.say !== l.captions.map((i) => said(i).replace(/\n/g, ' ')).join(' '));
+    check('Narration', 'The voice reads the subtitle text (re-record if the script changes)', stale.length === 0, stale.map((l) => l.n + 1).join(', ') || 'every line matches content/script.json');
+    const missingFiles = L.filter((l) => !fs.existsSync(path.join(ROOT, 'audio/voice', l.file)));
+    const wrongLength = L.filter((l) => !missingFiles.includes(l) && Math.abs(Number(probe(path.join(ROOT, 'audio/voice', l.file)).format.duration) - l.duration) > 0.02);
+    check('Narration', 'Every line has its audio file at the recorded length', missingFiles.length + wrongLength.length === 0, [...missingFiles, ...wrongLength].map((l) => l.file).join(', ') || `${L.length} files, ${fmt(L.reduce((n, l) => n + l.duration, 0))} s of speech`);
+    const low = L.filter((l) => l.score < R.min_score);
+    check('Narration', 'Speech recognition hears every line word for word', low.length === 0, low.map((l) => `${l.n + 1} (${l.score})`).join(', ') || `lowest match ${Math.min(...L.map((l) => l.score))}, threshold ${R.min_score}`);
+    const timing = L.filter((l) => l.start < l.caption_start || l.start - l.caption_start > R.late + 1e-6 || l.end > l.next_caption + R.overhang + 1e-6);
+    check('Narration', 'Each line is spoken while its subtitle is on screen', timing.length === 0, timing.map((l) => l.n + 1).join(', ') || `starts at most ${fmt(Math.max(...L.map((l) => l.start - l.caption_start)), 2)} s after its subtitle; never runs more than ${R.overhang} s into the next`);
+    const overlap = L.filter((l, i) => i && l.start < L[i - 1].end);
+    check('Narration', 'Lines never overlap', overlap.length === 0, overlap.map((l) => l.n + 1).join(', ') || `shortest pause ${fmt(Math.min(...L.slice(1).map((l, i) => l.start - L[i].end)), 2)} s`);
+    const stretched = L.filter((l) => l.tempo > R.max_tempo + 1e-6);
+    check('Narration', `No line is sped up by more than ${Math.round((R.max_tempo - 1) * 100)}%`, stretched.length === 0, stretched.map((l) => l.n + 1).join(', ') || (() => { const n = L.filter((l) => l.tempo > 1).length; return n ? `${n} line${n === 1 ? '' : 's'} tightened, at most ${Math.round((Math.max(...L.map((l) => l.tempo)) - 1) * 100)}%` : 'none tightened'; })());
+    const mix = fs.existsSync(path.join(ROOT, 'audio/voice/mix-check.json')) ? JSON.parse(read('audio/voice/mix-check.json')) : null;
+    for (const v of videos) {
+      const m = mix?.files?.[v.ar];
+      const current = m && m.sha256 === crypto.createHash('sha256').update(fs.readFileSync(v.file)).digest('hex');
+      const weak = current ? m.lines.filter((x) => x.score < 0.9) : [];
+      check('Narration', `${v.ar}: the narration is understood over the music in the finished film`, current && weak.length === 0,
+        !m ? 'run audio/check_mix.py' : !current ? 'mix check is older than the video file: run audio/check_mix.py' : weak.map((x) => `${x.n + 1} (${x.score})`).join(', ') || `all ${m.lines.length} lines recognised, lowest match ${Math.min(...m.lines.map((x) => x.score))}`);
+    }
+  }
+
+  // 6. Rules -------------------------------------------------------------------
   hits = scan(entryTexts, CREDIT);
   check('Rules', 'No personal credit in the entry (names, handles, "made by", signatures)', hits.length === 0, hits.join('; ') || 'none found');
   hits = scan(entryTexts, PRICE_TALK);
@@ -368,6 +405,11 @@ async function main() {
   check('Rules', 'Every asset file is listed with its licence in docs/ASSETS.md', undocumented.length === 0, undocumented.join(', ') || `${assets.length} asset files`);
   const audioNote = fs.existsSync(path.join(ROOT, 'audio/compose.py')) && /No samples, loops, presets or\s+third-party recordings/.test(read('audio/compose.py'));
   check('Rules', 'Music and sound effects are original, generated by audio/compose.py', audioNote, 'synthesised from code, no samples');
+  if (VOICE) {
+    const listed = /Chatterbox/.test(credits) && /MIT/.test(credits) && credits.includes('audio/voice/');
+    check('Rules', 'Narration voice is licensed for commercial use and listed in docs/ASSETS.md', VOICE.licence === 'MIT' && /no cloning/.test(VOICE.voice) && listed,
+      `${VOICE.model}, ${VOICE.licence} licence, ${VOICE.voice}`);
+  }
 
   // Report ----------------------------------------------------------------------
   const failed = results.filter((r) => !r.ok);
@@ -386,7 +428,7 @@ async function main() {
     md += '\n';
   }
   md += '## Items for a person to check\n\n';
-  md += '- Watch the film once with sound on and once muted before submitting.\n';
+  md += '- Watch the film once with sound on and once muted before submitting, and listen to the narration once on headphones.\n';
   md += '- Run `npm run check-sources` close to the deadline to confirm every quoted page still says the same thing.\n';
   for (const g of groups) {
     console.log(`\n${g}`);

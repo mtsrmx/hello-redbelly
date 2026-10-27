@@ -110,9 +110,9 @@ const brief = [
   ['No banned word and no stand-ins', 'The banned word, the stand-ins the brief names and 13 further jargon patterns are scanned for in everything visible on screen, four times a second, plus the subtitles and the file metadata. None appear.'],
   ['Every fact correct, from public material', `${script.claims.length} claims, each backed by word-for-word quotes from Redbelly, Tokeniser and the RBA's Project Acacia report. A script re-reads the live pages to confirm them.`],
   ['No price talk, advice or promised returns', 'No prices, amounts, returns, tickers or calls to buy, in the film or the subtitles. Checked automatically.'],
-  ['No unlicensed music, images or footage', 'Original synthesised score and sound effects, original icons and animation, official Redbelly logo files from the brand kit and the OFL-licensed brand typeface.'],
-  ['Checked, not just generated', 'Every sentence was checked against the sources, the quotes are verbatim, and the whole entry passes an automated suite before release.'],
-  ['No personal credit in the entry', 'No names, handles, signatures, watermarks or "made by" lines in the film, the subtitles or the file metadata. Checked automatically.'],
+  ['No unlicensed music, images or footage', 'Original synthesised score and sound effects; narration by Chatterbox from Resemble AI, MIT licence (commercial use allowed), using its built-in voice with no one cloned; original icons and animation; official Redbelly logo files from the brand kit and the OFL-licensed brand typeface.'],
+  ['Checked, not just generated', 'Every sentence was checked against the sources, the quotes are verbatim, every narrated line is confirmed word for word by speech recognition, and the whole entry passes an automated suite before release.'],
+  ['No personal credit in the entry', 'No names, handles, signatures, credit watermarks or "made by" lines in the film, the subtitles or the file metadata. Checked automatically. The narration carries Chatterbox\'s inaudible marker that flags it as synthetic speech; it names no one.'],
   ['Not posted before judging', 'This review page is marked noindex and nofollow and is not linked from anywhere. Share it with the judges only.'],
 ];
 const bl = $('#brief-list');

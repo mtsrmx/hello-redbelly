@@ -28,6 +28,18 @@ const clock = (t) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStar
 const accessedLong = new Date(`${accessed}T00:00:00Z`).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 const srcIndex = Object.fromEntries(sources.map((s, i) => [s.id, i + 1]));
 const claimById = Object.fromEntries(script.claims.map((c) => [c.id, c]));
+const voice = fs.existsSync(path.join(ROOT, 'audio/voice/lines.json')) ? JSON.parse(fs.readFileSync(path.join(ROOT, 'audio/voice/lines.json'), 'utf8')) : null;
+
+// Licensed media other than the brand kit, listed with the sources.
+const MEDIA = [
+  ...(voice ? [{
+    what: 'Narration',
+    text: `Synthetic voice generated with Chatterbox by Resemble AI, using its built-in default voice (no one's voice is cloned). ${voice.licence} licence, which allows commercial use. It reads the film's own fact-checked subtitles.`,
+    url: voice.source,
+  }] : []),
+  { what: 'Music and sound effects', text: 'Original, synthesised for this film from code (audio/compose.py). No samples, loops or stock music.', url: null },
+  { what: 'Typeface', text: 'Readex Pro, SIL Open Font License 1.1, as linked from the Redbelly brand kit.', url: 'https://fonts.google.com/specimen/Readex+Pro' },
+];
 
 // The words the viewer reads in each scene, in order.
 function sceneWords(s) {
@@ -75,15 +87,17 @@ for (const s of sources) {
   md += `| ${srcIndex[s.id]} | [${s.title}](${s.url}) | ${s.publisher} | ${uses.join('; ')} |\n`;
 }
 md += '\nThe Redbelly brand kit at [redbelly.network/brand](https://redbelly.network/brand) supplied the logos, the Readex Pro typeface and the colour palette.\n';
+md += '\n## Media and licences\n\n| Element | Source and licence |\n|---|---|\n';
+for (const m of MEDIA) md += `| ${m.what} | ${m.text}${m.url ? ` ${m.url}` : ''} |\n`;
 fs.writeFileSync(path.join(SUB, 'SOURCES.md'), md);
 
 // SCRIPT.md
 md = `# ${script.title}: script\n\n`;
-md += `${script.logline} Length ${clock(script.duration)} (${script.duration} s). The words on screen carry the story, so the film works with the sound off; the same words are in the subtitle files.\n\n`;
+md += `${script.logline} Length ${clock(script.duration)} (${script.duration} s). ${voice ? 'A narrator reads the subtitles, and the' : 'The'} words on screen carry the story, so the film works with or without sound; the same words are in the subtitle files.\n\n`;
 md += '| Time | On screen | What you see |\n|---|---|---|\n';
 for (const s of script.scenes) md += `| ${clock(s.start)} | ${sceneWords(s)} | ${s.visual} |\n`;
 md += '\n## Subtitles\n\n| # | In | Out | Text |\n|---|---|---|---|\n';
-script.captions.forEach((c, i) => { md += `| ${i + 1} | ${c.start.toFixed(2)} | ${c.end.toFixed(2)} | ${c.text.replace(/\n/g, ' ')} |\n`; });
+script.captions.forEach((c, i) => { md += `| ${i + 1} | ${c.start.toFixed(2)} | ${c.end.toFixed(2)} | ${c.text.replace(/\n/g, ' ')}${c.say ? ` (said as "${c.say}")` : ''} |\n`; });
 fs.writeFileSync(path.join(SUB, 'SCRIPT.md'), md);
 
 // FACT-CHECK.md
@@ -155,7 +169,7 @@ ${poster}
 <tr><td>Length</td><td>${script.duration} seconds (limit 90)</td></tr>
 <tr><td>Files</td><td>MP4, H.264 and AAC, 30 fps</td></tr>
 <tr><td>Subtitles</td><td>Burned into the picture, plus separate SRT and WebVTT files</td></tr>
-<tr><td>Sound</td><td>Original music and effects, synthesised for this film. Nothing to license</td></tr>
+<tr><td>Sound</td><td>${voice ? `Narration by a licensed synthetic voice (Chatterbox, ${voice.licence} licence) reading the subtitles. ` : ''}Original music and effects, synthesised for this film</td></tr>
 <tr><td>Sources</td><td>${sources.length} public sources: Redbelly, Tokeniser and the RBA's Project Acacia report</td></tr>
 </table></section>`;
 
@@ -171,6 +185,8 @@ for (const s of sources) {
   const uses = script.claims.filter((c) => c.evidence.some((e) => e.source === s.id)).map((c) => esc(c.text));
   html += `<tr><td class="t">${srcIndex[s.id]}</td><td><b>${esc(s.title)}</b><br><span class="src">${esc(s.publisher)}</span><br><a href="${s.url}">${esc(s.url)}</a></td><td class="note">${uses.join('<br>')}</td></tr>`;
 }
+html += '</table><h3>Media and licences</h3><table class="grid"><tr><th>Element</th><th>Source and licence</th></tr>';
+for (const m of MEDIA) html += `<tr><td><b>${esc(m.what)}</b></td><td class="note">${esc(m.text)}${m.url ? `<br><a href="${m.url}">${esc(m.url)}</a>` : ''}</td></tr>`;
 html += '</table></section>';
 
 html += '<section class="sec"><h2>Fact check</h2><p class="note">Each line of the film, the claim it makes and the exact supporting sentences. [...] marks words left out of a quote.</p>';
