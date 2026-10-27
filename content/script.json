@@ -801,7 +801,8 @@
     {
       "start": 54.55,
       "end": 56.8,
-      "text": "and CSIRO, Australia's\nscience agency."
+      "text": "and CSIRO, Australia's\nscience agency.",
+      "say": "and C.S.I.R.O., Australia's science agency."
     },
     {
       "start": 56.85,
@@ -846,7 +847,8 @@
     {
       "start": 81.15,
       "end": 84.8,
-      "text": "Final in seconds.\nredbelly.network"
+      "text": "Final in seconds.\nredbelly.network",
+      "say": "Final in seconds. Redbelly dot network."
     }
   ],
   "claims": [

@@ -1,0 +1,511 @@
+{
+  "model": "ResembleAI/chatterbox",
+  "voice": "Chatterbox built-in default voice (no cloning)",
+  "licence": "MIT",
+  "source": "https://huggingface.co/ResembleAI/chatterbox",
+  "settings": {
+    "exaggeration": 0.55,
+    "cfg_weight": 0.45,
+    "temperature": 0.7
+  },
+  "sample_rate": 24000,
+  "asr": "faster-whisper small.en",
+  "rules": {
+    "lead": 0.05,
+    "gap": 0.12,
+    "overhang": 0.25,
+    "late": 0.45,
+    "max_tempo": 1.12,
+    "min_score": 0.97
+  },
+  "lines": [
+    {
+      "n": 0,
+      "captions": [
+        0
+      ],
+      "text": "You can send money in seconds.",
+      "say": "You can send money in seconds.",
+      "seed": 100,
+      "tempo": 1.0,
+      "heard": "you can send money in seconds.",
+      "score": 1.0,
+      "file": "line-00.flac",
+      "start": 0.3,
+      "end": 1.921,
+      "duration": 1.621,
+      "caption_start": 0.25,
+      "next_caption": 2.6
+    },
+    {
+      "n": 1,
+      "captions": [
+        1
+      ],
+      "text": "But buying into a fund?",
+      "say": "But buying into a fund?",
+      "seed": 110,
+      "tempo": 1.0,
+      "heard": "But buying into a fund?",
+      "score": 1.0,
+      "file": "line-01.flac",
+      "start": 2.65,
+      "end": 3.922,
+      "duration": 1.272,
+      "caption_start": 2.6,
+      "next_caption": 4.25
+    },
+    {
+      "n": 2,
+      "captions": [
+        2
+      ],
+      "text": "That can still take days.",
+      "say": "That can still take days.",
+      "seed": 120,
+      "tempo": 1.0,
+      "heard": "That can still take days.",
+      "score": 1.0,
+      "file": "line-02.flac",
+      "start": 4.3,
+      "end": 5.563,
+      "duration": 1.263,
+      "caption_start": 4.25,
+      "next_caption": 6.35
+    },
+    {
+      "n": 3,
+      "captions": [
+        3
+      ],
+      "text": "Forms. ID checks. Middlemen. Waiting.",
+      "say": "Forms. ID checks. Middlemen. Waiting.",
+      "seed": 130,
+      "tempo": 1.0,
+      "heard": "forms, ID checks, middlemen, waiting.",
+      "score": 1.0,
+      "file": "line-03.flac",
+      "start": 6.4,
+      "end": 9.538,
+      "duration": 3.138,
+      "caption_start": 6.35,
+      "next_caption": 10.1
+    },
+    {
+      "n": 4,
+      "captions": [
+        4
+      ],
+      "text": "Redbelly is built to change that.",
+      "say": "Redbelly is built to change that.",
+      "seed": 140,
+      "tempo": 1.0,
+      "heard": "Red Belly is built to change that.",
+      "score": 1.0,
+      "file": "line-04.flac",
+      "start": 10.15,
+      "end": 11.838,
+      "duration": 1.688,
+      "caption_start": 10.1,
+      "next_caption": 13.9
+    },
+    {
+      "n": 5,
+      "captions": [
+        5
+      ],
+      "text": "A public network, built in Australia, where real-world assets go digital.",
+      "say": "A public network, built in Australia, where real-world assets go digital.",
+      "seed": 150,
+      "tempo": 1.0,
+      "heard": "A public network built in Australia where real-world assets go digital.",
+      "score": 1.0,
+      "file": "line-05.flac",
+      "start": 13.95,
+      "end": 17.717,
+      "duration": 3.767,
+      "caption_start": 13.9,
+      "next_caption": 20.1
+    },
+    {
+      "n": 6,
+      "captions": [
+        6
+      ],
+      "text": "Bonds. Loans. Funds. Property. Carbon credits.",
+      "say": "Bonds. Loans. Funds. Property. Carbon credits.",
+      "seed": 160,
+      "tempo": 1.0,
+      "heard": "bonds, loans, funds, property, carbon credits,",
+      "score": 1.0,
+      "file": "line-06.flac",
+      "start": 20.15,
+      "end": 23.373,
+      "duration": 3.223,
+      "caption_start": 20.1,
+      "next_caption": 23.85
+    },
+    {
+      "n": 7,
+      "captions": [
+        7
+      ],
+      "text": "Ownership becomes digital, with the rules written right in.",
+      "say": "Ownership becomes digital, with the rules written right in.",
+      "seed": 170,
+      "tempo": 1.0,
+      "heard": "Ownership becomes digital with the rules written right in.",
+      "score": 1.0,
+      "file": "line-07.flac",
+      "start": 23.9,
+      "end": 26.801,
+      "duration": 2.901,
+      "caption_start": 23.85,
+      "next_caption": 27.6
+    },
+    {
+      "n": 8,
+      "captions": [
+        8
+      ],
+      "text": "Here's how it works.",
+      "say": "Here's how it works.",
+      "seed": 180,
+      "tempo": 1.0,
+      "heard": "Here's how it works.",
+      "score": 1.0,
+      "file": "line-08.flac",
+      "start": 27.65,
+      "end": 28.562,
+      "duration": 0.912,
+      "caption_start": 27.6,
+      "next_caption": 30.1
+    },
+    {
+      "n": 9,
+      "captions": [
+        9
+      ],
+      "text": "One: everyone is verified.",
+      "say": "One: everyone is verified.",
+      "seed": 190,
+      "tempo": 1.0,
+      "heard": "One, everyone is verified.",
+      "score": 1.0,
+      "file": "line-09.flac",
+      "start": 30.15,
+      "end": 31.702,
+      "duration": 1.552,
+      "caption_start": 30.1,
+      "next_caption": 31.75
+    },
+    {
+      "n": 10,
+      "captions": [
+        10
+      ],
+      "text": "Every person proves who they are with a real passport check.",
+      "say": "Every person proves who they are with a real passport check.",
+      "seed": 200,
+      "tempo": 1.0,
+      "heard": "Every person proves who they are with a real passport check.",
+      "score": 1.0,
+      "file": "line-10.flac",
+      "start": 31.822,
+      "end": 34.693,
+      "duration": 2.871,
+      "caption_start": 31.75,
+      "next_caption": 35.05
+    },
+    {
+      "n": 11,
+      "captions": [
+        11
+      ],
+      "text": "Their personal details stay protected.",
+      "say": "Their personal details stay protected.",
+      "seed": 210,
+      "tempo": 1.0,
+      "heard": "Their personal details stay protected.",
+      "score": 1.0,
+      "file": "line-11.flac",
+      "start": 35.1,
+      "end": 36.915,
+      "duration": 1.815,
+      "caption_start": 35.05,
+      "next_caption": 37.6
+    },
+    {
+      "n": 12,
+      "captions": [
+        12
+      ],
+      "text": "Two: the rules are built in.",
+      "say": "Two: the rules are built in.",
+      "seed": 220,
+      "tempo": 1.0,
+      "heard": "Two, the rules are built in.",
+      "score": 1.0,
+      "file": "line-12.flac",
+      "start": 37.65,
+      "end": 39.605,
+      "duration": 1.954,
+      "caption_start": 37.6,
+      "next_caption": 39.7
+    },
+    {
+      "n": 13,
+      "captions": [
+        13
+      ],
+      "text": "Each asset knows who's allowed to own it.",
+      "say": "Each asset knows who's allowed to own it.",
+      "seed": 230,
+      "tempo": 1.0,
+      "heard": "Each asset knows who's allowed to own it.",
+      "score": 1.0,
+      "file": "line-13.flac",
+      "start": 39.75,
+      "end": 41.746,
+      "duration": 1.996,
+      "caption_start": 39.7,
+      "next_caption": 42.45
+    },
+    {
+      "n": 14,
+      "captions": [
+        14
+      ],
+      "text": "Rule-breaking trades simply don't happen.",
+      "say": "Rule-breaking trades simply don't happen.",
+      "seed": 240,
+      "tempo": 1.0,
+      "heard": "Rule-breaking trades simply don't happen.",
+      "score": 1.0,
+      "file": "line-14.flac",
+      "start": 42.5,
+      "end": 44.378,
+      "duration": 1.878,
+      "caption_start": 42.45,
+      "next_caption": 45.1
+    },
+    {
+      "n": 15,
+      "captions": [
+        15
+      ],
+      "text": "Three: done means done.",
+      "say": "Three: done means done.",
+      "seed": 250,
+      "tempo": 1.0,
+      "heard": "Three, done means done.",
+      "score": 1.0,
+      "file": "line-15.flac",
+      "start": 45.15,
+      "end": 47.198,
+      "duration": 2.048,
+      "caption_start": 45.1,
+      "next_caption": 47.2
+    },
+    {
+      "n": 16,
+      "captions": [
+        16
+      ],
+      "text": "Money and ownership swap in one step.",
+      "say": "Money and ownership swap in one step.",
+      "seed": 260,
+      "tempo": 1.0,
+      "heard": "money and ownership swap in one step.",
+      "score": 1.0,
+      "file": "line-16.flac",
+      "start": 47.318,
+      "end": 49.379,
+      "duration": 2.061,
+      "caption_start": 47.2,
+      "next_caption": 49.9
+    },
+    {
+      "n": 17,
+      "captions": [
+        17
+      ],
+      "text": "Final in seconds. No take-backs.",
+      "say": "Final in seconds. No take-backs.",
+      "seed": 270,
+      "tempo": 1.0,
+      "heard": "Final in seconds. No take-backs.",
+      "score": 1.0,
+      "file": "line-17.flac",
+      "start": 49.95,
+      "end": 52.292,
+      "duration": 2.342,
+      "caption_start": 49.9,
+      "next_caption": 52.6
+    },
+    {
+      "n": 18,
+      "captions": [
+        18,
+        19
+      ],
+      "text": "Developed at the University of Sydney and CSIRO, Australia's science agency.",
+      "say": "Developed at the University of Sydney and C.S.I.R.O., Australia's science agency.",
+      "seed": 281,
+      "tempo": 1.05,
+      "heard": "Developed at the University of Sydney and CSIRO, Australia's science agency.",
+      "score": 1.0,
+      "file": "line-18.flac",
+      "start": 52.65,
+      "end": 57.1,
+      "duration": 4.45,
+      "caption_start": 52.6,
+      "next_caption": 56.85
+    },
+    {
+      "n": 19,
+      "captions": [
+        20
+      ],
+      "text": "Its core design is mathematically proven correct.",
+      "say": "Its core design is mathematically proven correct.",
+      "seed": 290,
+      "tempo": 1.0,
+      "heard": "its core design is mathematically proven correct.",
+      "score": 1.0,
+      "file": "line-19.flac",
+      "start": 57.22,
+      "end": 59.86,
+      "duration": 2.64,
+      "caption_start": 56.85,
+      "next_caption": 60.05
+    },
+    {
+      "n": 20,
+      "captions": [
+        21,
+        22
+      ],
+      "text": "Australia's central bank issued trial digital dollars on Redbelly, the only public network that carried them, in Project Acacia.",
+      "say": "Australia's central bank issued trial digital dollars on Redbelly, the only public network that carried them, in Project Acacia.",
+      "seed": 301,
+      "tempo": 1.0,
+      "heard": "Australia's central bank issued trial digital dollars on Redbelly, the only public network that carried them, in Project Acacia.",
+      "score": 1.0,
+      "file": "line-20.flac",
+      "start": 60.1,
+      "end": 66.236,
+      "duration": 6.136,
+      "caption_start": 60.05,
+      "next_caption": 67.6
+    },
+    {
+      "n": 21,
+      "captions": [
+        23
+      ],
+      "text": "The result: less paperwork.",
+      "say": "The result: less paperwork.",
+      "seed": 311,
+      "tempo": 1.0,
+      "heard": "The result, less paperwork.",
+      "score": 1.0,
+      "file": "line-21.flac",
+      "start": 67.65,
+      "end": 69.488,
+      "duration": 1.838,
+      "caption_start": 67.6,
+      "next_caption": 69.5
+    },
+    {
+      "n": 22,
+      "captions": [
+        24
+      ],
+      "text": "Fewer middlemen.",
+      "say": "Fewer middlemen.",
+      "seed": 320,
+      "tempo": 1.0,
+      "heard": "fewer middlemen.",
+      "score": 1.0,
+      "file": "line-22.flac",
+      "start": 69.608,
+      "end": 70.533,
+      "duration": 0.925,
+      "caption_start": 69.5,
+      "next_caption": 70.9
+    },
+    {
+      "n": 23,
+      "captions": [
+        25
+      ],
+      "text": "Markets that never close.",
+      "say": "Markets that never close.",
+      "seed": 330,
+      "tempo": 1.0,
+      "heard": "markets that never close.",
+      "score": 1.0,
+      "file": "line-23.flac",
+      "start": 70.95,
+      "end": 72.316,
+      "duration": 1.366,
+      "caption_start": 70.9,
+      "next_caption": 72.6
+    },
+    {
+      "n": 24,
+      "captions": [
+        26
+      ],
+      "text": "Ownership that moves like money: fast, safe, and by the rules.",
+      "say": "Ownership that moves like money: fast, safe, and by the rules.",
+      "seed": 340,
+      "tempo": 1.0,
+      "heard": "ownership that moves like money, fast, safe, and by the rules.",
+      "score": 1.0,
+      "file": "line-24.flac",
+      "start": 72.65,
+      "end": 76.058,
+      "duration": 3.408,
+      "caption_start": 72.6,
+      "next_caption": 77.7
+    },
+    {
+      "n": 25,
+      "captions": [
+        27
+      ],
+      "text": "Redbelly. Verified people. Built-in rules.",
+      "say": "Redbelly. Verified people. Built-in rules.",
+      "seed": 351,
+      "tempo": 1.0,
+      "heard": "Red Belly, verified people, built-in rules.",
+      "score": 1.0,
+      "file": "line-25.flac",
+      "start": 77.75,
+      "end": 81.019,
+      "duration": 3.269,
+      "caption_start": 77.7,
+      "next_caption": 81.15
+    },
+    {
+      "n": 26,
+      "captions": [
+        28
+      ],
+      "text": "Final in seconds. redbelly.network",
+      "say": "Final in seconds. Redbelly dot network.",
+      "seed": 360,
+      "tempo": 1.0,
+      "heard": "Final in seconds, redbelly.network.",
+      "score": 1.0,
+      "file": "line-26.flac",
+      "start": 81.2,
+      "end": 83.818,
+      "duration": 2.618,
+      "caption_start": 81.15,
+      "next_caption": 84.65
+    }
+  ]
+}
