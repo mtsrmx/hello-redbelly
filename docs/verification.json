@@ -1,0 +1,316 @@
+{
+  "passed": 52,
+  "total": 52,
+  "specs": [
+    {
+      "ar": "16x9",
+      "res": "1920 x 1080",
+      "fps": "30.00",
+      "dur": "85.00",
+      "loud": "-13.9 LUFS / -1.4 dBTP",
+      "size": "39.2 MB",
+      "br": "3864 kb/s"
+    },
+    {
+      "ar": "9x16",
+      "res": "1080 x 1920",
+      "fps": "30.00",
+      "dur": "85.00",
+      "loud": "-13.9 LUFS / -1.4 dBTP",
+      "size": "39.0 MB",
+      "br": "3853 kb/s"
+    }
+  ],
+  "groups": [
+    {
+      "name": "Script",
+      "results": [
+        {
+          "name": "Running time is 90 seconds or less",
+          "ok": true,
+          "detail": "85.00 s"
+        },
+        {
+          "name": "Scenes run back to back from 0 s to the end",
+          "ok": true,
+          "detail": "16 scenes"
+        }
+      ]
+    },
+    {
+      "name": "Wording",
+      "results": [
+        {
+          "name": "Composition loads without errors (16x9)",
+          "ok": true,
+          "detail": "no page errors"
+        },
+        {
+          "name": "On-screen text sampled for the whole film (16x9)",
+          "ok": true,
+          "detail": "341 samples, 4 per second"
+        },
+        {
+          "name": "Composition loads without errors (9x16)",
+          "ok": true,
+          "detail": "no page errors"
+        },
+        {
+          "name": "On-screen text sampled for the whole film (9x16)",
+          "ok": true,
+          "detail": "341 samples, 4 per second"
+        },
+        {
+          "name": "The banned word and the two stand-ins the brief names never appear in the entry",
+          "ok": true,
+          "detail": "164 script strings, 189 distinct on-screen strings and both subtitle files scanned"
+        },
+        {
+          "name": "No other stand-ins or jargon (ledger, chain, crypto, token, node, consensus and more)",
+          "ok": true,
+          "detail": "13 jargon patterns, none found"
+        },
+        {
+          "name": "No file in the repository contains the three banned terms",
+          "ok": true,
+          "detail": "all text files scanned"
+        }
+      ]
+    },
+    {
+      "name": "Facts",
+      "results": [
+        {
+          "name": "Every scene that states a fact cites at least one claim",
+          "ok": true,
+          "detail": "14 scenes"
+        },
+        {
+          "name": "Every claim a scene cites exists",
+          "ok": true,
+          "detail": "22 distinct claims cited"
+        },
+        {
+          "name": "Every claim is backed by a verbatim quote from a listed source",
+          "ok": true,
+          "detail": "22 claims, 58 quotes"
+        },
+        {
+          "name": "Every source has a publisher, title, https link and quotes",
+          "ok": true,
+          "detail": "16 sources"
+        },
+        {
+          "name": "Every listed source is used by at least one claim",
+          "ok": true,
+          "detail": "all sources used"
+        },
+        {
+          "name": "Facts come only from public Redbelly material and the RBA report",
+          "ok": true,
+          "detail": "redbelly.network, vine.redbelly.network, tokeniser.com, www.rba.gov.au"
+        }
+      ]
+    },
+    {
+      "name": "Captions",
+      "results": [
+        {
+          "name": "SRT and VTT files exist",
+          "ok": true,
+          "detail": "submission/redbelly-made-simple.en.srt and .en.vtt"
+        },
+        {
+          "name": "Subtitle files are up to date with the script",
+          "ok": true,
+          "detail": "regenerate with npm run captions"
+        },
+        {
+          "name": "SRT cues are numbered 1..n in order",
+          "ok": true,
+          "detail": "29 cues"
+        },
+        {
+          "name": "SRT and VTT carry the same cues",
+          "ok": true,
+          "detail": "29 cues"
+        },
+        {
+          "name": "Cues never overlap and stay inside the film",
+          "ok": true,
+          "detail": "last cue ends 84.80 s"
+        },
+        {
+          "name": "At most two lines per cue and 42 characters per line",
+          "ok": true,
+          "detail": "longest line 41 characters"
+        },
+        {
+          "name": "Reading speed is 20 characters per second or less",
+          "ok": true,
+          "detail": "fastest 19.7 cps"
+        },
+        {
+          "name": "Every cue stays up for at least 1 second",
+          "ok": true,
+          "detail": "shortest 1.35 s"
+        },
+        {
+          "name": "Every cue's words are burned into the picture while it shows (16x9)",
+          "ok": true,
+          "detail": "29 cues matched against the on-screen text"
+        },
+        {
+          "name": "Every cue's words are burned into the picture while it shows (9x16)",
+          "ok": true,
+          "detail": "29 cues matched against the on-screen text"
+        }
+      ]
+    },
+    {
+      "name": "Video",
+      "results": [
+        {
+          "name": "Rendered video files are present",
+          "ok": true,
+          "detail": "submission/redbelly-made-simple-16x9.mp4, submission/redbelly-made-simple-9x16.mp4"
+        },
+        {
+          "name": "16x9: MP4 container with H.264 High video and AAC audio",
+          "ok": true,
+          "detail": "mov,mp4,m4a,3gp,3g2,mj2, h264 High, aac"
+        },
+        {
+          "name": "16x9: 1920 x 1080 (1080p or higher)",
+          "ok": true,
+          "detail": "1920 x 1080"
+        },
+        {
+          "name": "16x9: 30 fps, yuv420p, BT.709 colour tags",
+          "ok": true,
+          "detail": "30.00 fps, yuv420p, bt709"
+        },
+        {
+          "name": "16x9: 90 seconds or less",
+          "ok": true,
+          "detail": "85.00 s"
+        },
+        {
+          "name": "16x9: stereo 48 kHz audio",
+          "ok": true,
+          "detail": "48000 Hz, 2 ch"
+        },
+        {
+          "name": "16x9: loudness -14 LUFS (within 1 LU), true peak at or below -1 dBTP",
+          "ok": true,
+          "detail": "-13.9 LUFS, -1.4 dBTP"
+        },
+        {
+          "name": "16x9: fast start (plays while downloading)",
+          "ok": true,
+          "detail": "moov atom before mdat"
+        },
+        {
+          "name": "16x9: no credit or banned words in file metadata",
+          "ok": true,
+          "detail": "tags: major_brand, minor_version, compatible_brands, title, encoder"
+        },
+        {
+          "name": "16x9: file size under 100 MB",
+          "ok": true,
+          "detail": "39.2 MB"
+        },
+        {
+          "name": "9x16: MP4 container with H.264 High video and AAC audio",
+          "ok": true,
+          "detail": "mov,mp4,m4a,3gp,3g2,mj2, h264 High, aac"
+        },
+        {
+          "name": "9x16: 1080 x 1920 (1080p or higher)",
+          "ok": true,
+          "detail": "1080 x 1920"
+        },
+        {
+          "name": "9x16: 30 fps, yuv420p, BT.709 colour tags",
+          "ok": true,
+          "detail": "30.00 fps, yuv420p, bt709"
+        },
+        {
+          "name": "9x16: 90 seconds or less",
+          "ok": true,
+          "detail": "85.00 s"
+        },
+        {
+          "name": "9x16: stereo 48 kHz audio",
+          "ok": true,
+          "detail": "48000 Hz, 2 ch"
+        },
+        {
+          "name": "9x16: loudness -14 LUFS (within 1 LU), true peak at or below -1 dBTP",
+          "ok": true,
+          "detail": "-13.9 LUFS, -1.4 dBTP"
+        },
+        {
+          "name": "9x16: fast start (plays while downloading)",
+          "ok": true,
+          "detail": "moov atom before mdat"
+        },
+        {
+          "name": "9x16: no credit or banned words in file metadata",
+          "ok": true,
+          "detail": "tags: major_brand, minor_version, compatible_brands, title, encoder"
+        },
+        {
+          "name": "9x16: file size under 100 MB",
+          "ok": true,
+          "detail": "39.0 MB"
+        }
+      ]
+    },
+    {
+      "name": "Rules",
+      "results": [
+        {
+          "name": "No personal credit in the entry (names, handles, \"made by\", signatures)",
+          "ok": true,
+          "detail": "none found"
+        },
+        {
+          "name": "No price talk, investment advice or promises of returns",
+          "ok": true,
+          "detail": "8 patterns, none found"
+        },
+        {
+          "name": "The only web address on screen is redbelly.network",
+          "ok": true,
+          "detail": "redbelly.network"
+        },
+        {
+          "name": "Logo files are byte-identical to the official Redbelly brand pack",
+          "ok": true,
+          "detail": "4 files match the SHA-256 recorded from the brand pack"
+        },
+        {
+          "name": "Brand typeface Readex Pro is the only font used",
+          "ok": true,
+          "detail": "Readex Pro"
+        },
+        {
+          "name": "Brand colours defined as design tokens",
+          "ok": true,
+          "detail": "#ff5050 #283a46 #142530 #848b91 #d9d9d9 #ecebec #fa423c"
+        },
+        {
+          "name": "Every asset file is listed with its licence in docs/ASSETS.md",
+          "ok": true,
+          "detail": "8 asset files"
+        },
+        {
+          "name": "Music and sound effects are original, generated by audio/compose.py",
+          "ok": true,
+          "detail": "synthesised from code, no samples"
+        }
+      ]
+    }
+  ]
+}
