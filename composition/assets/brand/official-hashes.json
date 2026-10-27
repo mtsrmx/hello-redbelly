@@ -1,0 +1,17 @@
+{
+  "note": "SHA-256 of each logo file exactly as it comes in the official Redbelly brand pack. tools/verify.mjs re-hashes the files to prove they are unaltered.",
+  "pack": "https://storage.googleapis.com/redbelly-website.firebasestorage.app/All_Redbelly_Logos_c05d39d321/All_Redbelly_Logos_c05d39d321.zip",
+  "brandPage": "https://redbelly.network/brand",
+  "originalNames": {
+    "isotype-red.svg": "All Redbelly Logos/Isotype/Redbelly Isotype Red/Redbelly_Isotype-Red.svg",
+    "isotype-white.svg": "All Redbelly Logos/Isotype/Redbelly Isotype White/Redbelly_Isotype-White.svg",
+    "brand-vertical-negative.svg": "All Redbelly Logos/Complete Brand/Redbelly Brand Negative/Redbelly_Brand-negative.svg",
+    "brand-horizontal-negative.svg": "All Redbelly Logos/Complete Brand Horizontal/Redbelly Horizontal Negative/Redbelly_Brand-H-negative.svg"
+  },
+  "files": {
+    "isotype-red.svg": "d8b2eff16d34fc1c03f31cfe5c8024ea9b0bd449d76f15682cea58b3ed869461",
+    "isotype-white.svg": "dd4f5aac7c6f19718f6478590bd5ed54fed1e4a867958fdc3721d2d1277cee19",
+    "brand-vertical-negative.svg": "9239e585f64ac6e51aa56f431dfaff5607bb197e815aa83cd6912bc76be5637a",
+    "brand-horizontal-negative.svg": "705cf7c417d49ac9a8e169f50ec62a44491b1eebcab6ea25ea5edd2a86df6d54"
+  }
+}

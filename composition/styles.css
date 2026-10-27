@@ -1,0 +1,145 @@
+/* Redbelly brand system: Readex Pro, #FF5050 red and #283A46 slate (redbelly.network/brand). */
+@font-face {
+  font-family: 'Readex Pro';
+  src: url('assets/fonts/ReadexPro-VF.ttf') format('truetype');
+  font-weight: 160 700;
+  font-display: block;
+}
+
+:root {
+  --red: #ff5050;
+  --red-deep: #fa423c;
+  --slate: #283a46;
+  --navy: #142530;
+  --grey: #848b91;
+  --silver: #d9d9d9;
+  --paper: #ecebec;
+  --white: #ffffff;
+  --card: rgba(40, 58, 70, 0.78);
+  --card-line: rgba(236, 235, 236, 0.12);
+  --shadow: 0 40px 110px rgba(4, 10, 15, 0.55), 0 8px 24px rgba(4, 10, 15, 0.35);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; background: #0a141b; overflow: hidden; }
+body { -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+
+#stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Readex Pro', system-ui, sans-serif;
+  font-weight: 400;
+  transform-origin: 0 0;
+  font-variant-numeric: tabular-nums;
+}
+#stage.portrait { width: 1080px; height: 1920px; }
+#bg, #wipe { position: absolute; inset: 0; width: 100%; height: 100%; }
+#wipe { pointer-events: none; }
+#scenes, .scene { position: absolute; inset: 0; }
+.scene { display: none; }
+.abs { position: absolute; }
+
+/* ---------- Type ---------- */
+.txt .ln { display: block; padding: 0.04em 0 0.1em; margin-bottom: -0.06em; }
+.txt .w { display: inline-block; will-change: transform, opacity; }
+.accent { color: var(--red); }
+.display { font-size: 100px; line-height: 1.02; font-weight: 500; letter-spacing: -0.025em; }
+.h1 { font-size: 92px; line-height: 1.04; font-weight: 500; letter-spacing: -0.022em; }
+.h2 { font-size: 64px; line-height: 1.08; font-weight: 500; letter-spacing: -0.015em; }
+.body { font-size: 50px; line-height: 1.28; font-weight: 400; color: var(--silver); letter-spacing: -0.005em; }
+.label { font-size: 26px; line-height: 1; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
+.portrait .display { font-size: 92px; }
+.portrait .h1 { font-size: 88px; }
+.portrait .body { font-size: 50px; }
+
+/* ---------- Chapter label (brand manual: label with red rule) ---------- */
+#chapter { position: absolute; left: 128px; top: 92px; }
+.portrait #chapter { left: 88px; top: 120px; }
+#chapter .chap { position: absolute; left: 0; top: 0; white-space: nowrap; }
+#chapter .chap-text { display: block; color: var(--paper); padding-bottom: 14px; }
+#chapter .chap-rule { display: block; height: 3px; background: var(--red); width: 100%; transform-origin: 0 50%; }
+
+/* ---------- Cards and chips ---------- */
+.card {
+  position: absolute;
+  background: linear-gradient(160deg, rgba(52, 74, 89, 0.92), rgba(30, 46, 58, 0.92));
+  border: 1.5px solid var(--card-line);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 24px 14px 18px;
+  border-radius: 999px;
+  background: rgba(20, 37, 48, 0.85);
+  border: 1.5px solid var(--card-line);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--paper);
+  white-space: nowrap;
+}
+.chip .dot { width: 40px; height: 40px; border-radius: 50%; background: var(--red); display: grid; place-items: center; }
+.chip .dot svg { width: 28px; height: 28px; }
+.chip.off { color: var(--grey); }
+.chip.off .dot { background: #3a4a55; }
+
+.tag {
+  display: inline-block;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  border: 2px solid var(--red);
+  border-radius: 12px;
+  padding: 8px 14px 7px;
+}
+
+/* ---------- Phone mock ---------- */
+.phone {
+  position: absolute;
+  width: 420px;
+  height: 840px;
+  border-radius: 64px;
+  background: #0f1d27;
+  border: 2px solid rgba(236, 235, 236, 0.16);
+  box-shadow: var(--shadow), inset 0 0 0 10px #172833;
+  overflow: hidden;
+}
+.phone .notch { position: absolute; left: 50%; top: 26px; width: 110px; height: 30px; margin-left: -55px; border-radius: 20px; background: #0a141b; }
+.phone .screen { position: absolute; inset: 10px; border-radius: 54px; overflow: hidden; background: linear-gradient(180deg, #1b2e3b, #13222c); }
+.phone .app-title { position: absolute; left: 44px; top: 110px; font-size: 40px; font-weight: 500; color: var(--white); }
+.phone .row { position: absolute; left: 34px; right: 34px; height: 116px; border-radius: 26px; background: rgba(236, 235, 236, 0.06); border: 1.5px solid rgba(236, 235, 236, 0.08); display: flex; align-items: center; gap: 22px; padding: 0 24px; }
+.phone .avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--slate); display: grid; place-items: center; font-size: 28px; font-weight: 500; color: var(--paper); border: 2px solid rgba(255, 80, 80, 0.7); }
+.phone .row .k { font-size: 24px; color: var(--grey); }
+.phone .row .v { font-size: 34px; font-weight: 500; color: var(--white); margin-top: 2px; }
+.phone .btn { position: absolute; left: 34px; right: 34px; height: 104px; border-radius: 30px; background: var(--red); color: var(--white); display: grid; place-items: center; font-size: 36px; font-weight: 500; box-shadow: 0 18px 40px rgba(255, 80, 80, 0.35); }
+.phone .state { position: absolute; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; }
+
+/* ---------- Generic icon tiles ---------- */
+.tile { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 26px; }
+.tile .face {
+  width: 210px; height: 210px; border-radius: 40px; display: grid; place-items: center;
+  background: linear-gradient(160deg, rgba(52, 74, 89, 0.95), rgba(28, 44, 56, 0.95));
+  border: 1.5px solid var(--card-line); box-shadow: var(--shadow); color: var(--paper);
+}
+.tile .cap { font-size: 46px; font-weight: 500; color: var(--white); white-space: nowrap; }
+
+.hexbadge { position: absolute; display: grid; place-items: center; }
+.hexbadge > svg.hexbg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.hexbadge > .icon { position: relative; }
+
+.num { font-size: 30px; font-weight: 500; letter-spacing: 0.08em; color: var(--red); }
+.muted { color: var(--grey); }
+.mono { font-variant-numeric: tabular-nums; }
+.center { text-align: center; }
+svg { overflow: visible; }
+.brand { position: absolute; }
+.brand > svg { display: block; width: 100%; height: 100%; }

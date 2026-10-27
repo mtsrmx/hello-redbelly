@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Redbelly, made simple: live player</title>
+  <link rel="icon" href="assets/brand/isotype-red.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #play { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 10; font: 500 15px/1 'Readex Pro', system-ui, sans-serif; color: #ecebec; background: rgba(20, 37, 48, 0.85); border: 1px solid rgba(236, 235, 236, 0.18); border-radius: 999px; padding: 12px 18px; letter-spacing: 0.04em; pointer-events: none; transition: opacity 0.3s; }
+    #play.hide { opacity: 0; }
+    html[data-render] #play { display: none; }
+  </style>
+  <script>if (new URLSearchParams(location.search).has('render')) document.documentElement.dataset.render = '1';</script>
+</head>
+<body>
+  <div id="stage">
+    <canvas id="bg"></canvas>
+    <div id="scenes"></div>
+    <div id="chapter"></div>
+    <canvas id="wipe"></canvas>
+  </div>
+  <div id="play">Click or press space to play with sound</div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
