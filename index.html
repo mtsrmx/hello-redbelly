@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Redbelly, made simple</title>
+  <meta name="description" content="An animated explainer that tells anyone what Redbelly does and why it matters, in everyday words. Review copy for the Redbelly DAO.">
+  <meta name="theme-color" content="#142530">
+  <link rel="icon" href="composition/assets/brand/isotype-red.svg" type="image/svg+xml">
+  <link rel="preload" href="composition/assets/fonts/ReadexPro-VF.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="site/site.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-in">
+      <a class="brand" href="#watch" aria-label="Redbelly, made simple"><img src="composition/assets/brand/brand-horizontal-negative.svg" alt="Redbelly" width="168" height="47"></a>
+      <nav aria-label="Sections">
+        <a href="#story">Story</a>
+        <a href="#brief">Brief</a>
+        <a href="#facts">Fact check</a>
+        <a href="#sources">Sources</a>
+        <a href="#checks">Checks</a>
+        <a href="#files">Files</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="watch" class="hero">
+      <div class="wrap">
+        <p class="eyebrow"><span class="rule"></span>Redbelly DAO explainer challenge · video entry</p>
+        <h1>Redbelly, <span class="red">made simple</span></h1>
+        <p class="lede">An 85-second animated explainer that tells anyone, a friend, a parent or a business owner, what Redbelly does and why it matters. Everyday words, no jargon, and every fact traced to a public source.</p>
+
+        <div class="player">
+          <div class="tabs" role="tablist" aria-label="Video format">
+            <button role="tab" aria-selected="true" data-ar="16x9">Landscape 16:9</button>
+            <button role="tab" aria-selected="false" data-ar="9x16">Vertical 9:16</button>
+            <a class="live" href="composition/" target="_blank" rel="noopener">Play the live version ↗</a>
+          </div>
+          <div class="frame" data-ar="16x9">
+            <video id="film" controls playsinline preload="metadata" poster="submission/poster-16x9.jpg">
+              <source src="submission/redbelly-made-simple-16x9.mp4" type="video/mp4">
+              <track kind="subtitles" src="submission/redbelly-made-simple.en.vtt" srclang="en" label="English">
+            </video>
+          </div>
+          <p class="note">Subtitles are burned into the picture, so the film reads with the sound off. The same text ships as SRT and WebVTT files.</p>
+        </div>
+
+        <ul class="stats" aria-label="At a glance">
+          <li><b>85 s</b><span>length (limit 90)</span></li>
+          <li><b>1080p</b><span>16:9 and 9:16, 30 fps</span></li>
+          <li><b id="stat-facts">22</b><span>facts, each with a source quote</span></li>
+          <li><b>0</b><span>jargon words, checked by machine</span></li>
+          <li><b>100%</b><span>original music and sound</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="story" class="band">
+      <div class="wrap">
+        <h2><span class="rule"></span>The story</h2>
+        <p class="sub">A problem everyone recognises, what Redbelly is, three ideas that make it work, why you can trust it, and why it matters. Select a scene to jump there.</p>
+        <ol class="scenes" id="scenes"></ol>
+      </div>
+    </section>
+
+    <section id="script" class="band alt">
+      <div class="wrap two">
+        <div>
+          <h2><span class="rule"></span>Every word on screen</h2>
+          <p class="sub">The film's subtitles, cue by cue. The line on screen right now is highlighted while the video plays.</p>
+        </div>
+        <ol class="cues" id="cues"></ol>
+      </div>
+    </section>
+
+    <section id="brief" class="band">
+      <div class="wrap">
+        <h2><span class="rule"></span>The brief, point by point</h2>
+        <div class="brief" id="brief-list"></div>
+      </div>
+    </section>
+
+    <section id="facts" class="band alt">
+      <div class="wrap">
+        <h2><span class="rule"></span>Fact check</h2>
+        <p class="sub">Every factual line in the film, the claim it makes, and the exact sentences behind it. Quotes are word for word; [...] marks words left out.</p>
+        <div class="facts" id="facts-list"></div>
+      </div>
+    </section>
+
+    <section id="sources" class="band">
+      <div class="wrap">
+        <h2><span class="rule"></span>Sources</h2>
+        <p class="sub" id="sources-sub">Public Redbelly material, Tokeniser and the Reserve Bank of Australia's Project Acacia report.</p>
+        <ol class="sources" id="sources-list"></ol>
+      </div>
+    </section>
+
+    <section id="checks" class="band alt">
+      <div class="wrap">
+        <h2><span class="rule"></span>Checked by machine</h2>
+        <p class="sub" id="checks-sub">An automated suite checks the film against every rule in the brief: the words on screen, the subtitles, the facts, the video files and the credits.</p>
+        <div class="specs" id="specs"></div>
+        <div class="checks" id="checks-list"></div>
+      </div>
+    </section>
+
+    <section id="files" class="band">
+      <div class="wrap">
+        <h2><span class="rule"></span>Files</h2>
+        <div class="files">
+          <a class="file main" href="submission/redbelly-made-simple-16x9.mp4" download><b>Film, landscape 16:9</b><span>MP4 · 1920 x 1080 · H.264 and AAC</span></a>
+          <a class="file" href="submission/redbelly-made-simple-9x16.mp4" download><b>Film, vertical 9:16</b><span>MP4 · 1080 x 1920 · same cut</span></a>
+          <a class="file" href="submission/redbelly-made-simple.en.srt" download><b>Subtitles</b><span>SubRip .srt</span></a>
+          <a class="file" href="submission/redbelly-made-simple.en.vtt" download><b>Subtitles</b><span>WebVTT .vtt</span></a>
+          <a class="file" href="submission/redbelly-made-simple-submission-pack.pdf"><b>Submission pack</b><span>PDF · script, sources, fact check, checks</span></a>
+          <a class="file" href="submission/SOURCES.md"><b>Sources list</b><span>Markdown</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="post" class="band alt">
+      <div class="wrap two">
+        <div>
+          <h2><span class="rule"></span>Ready to post</h2>
+          <p class="sub">A suggested caption for the DAO account, under 280 characters and in the same plain words as the film.</p>
+        </div>
+        <div class="post">
+          <p id="post-text">What is Redbelly, minus the jargon?
+
+A public network, built in Australia, where real-world assets go digital, with three simple ideas:
+✅ Verified people
+✅ Built-in rules
+✅ Final in seconds
+
+85 seconds, sound optional 👇</p>
+          <button id="copy" type="button">Copy caption</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="made" class="band">
+      <div class="wrap">
+        <h2><span class="rule"></span>How it was made</h2>
+        <div class="made">
+          <div><h3>One script drives everything</h3><p>The words on screen, the timings, the subtitles, the claims and the sound cues all live in <code>content/script.json</code>. The film, the subtitle files, this page and the fact check are generated from it, so they cannot drift apart.</p></div>
+          <div><h3>Animated in code, in the brand kit</h3><p>Every scene is drawn in HTML, SVG and canvas with Readex Pro, the official palette and the official logo files from the Redbelly brand kit, untouched. Each frame is a pure function of time, captured losslessly in headless Chromium and encoded once.</p></div>
+          <div><h3>Original sound</h3><p>The score and every effect are synthesised from sine waves, saw waves and filtered noise by <code>audio/compose.py</code>, timed to the same cues as the animation. No samples, loops or stock music, so nothing needs a licence.</p></div>
+          <div><h3>Facts you can check</h3><p>Each claim carries word-for-word quotes from public pages. <code>npm run check-sources</code> re-reads the live pages and confirms every quote is still there.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p>Review copy for the Redbelly DAO. Please do not share before judging.</p>
+      <p class="small">Redbelly name and logos belong to Redbelly Network and are used as the brand kit describes. Readex Pro is licensed under the SIL Open Font License.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="site/site.js"></script>
+</body>
+</html>
