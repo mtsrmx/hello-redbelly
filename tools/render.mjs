@@ -4,6 +4,7 @@
 //
 // Usage: node tools/render.mjs [--ar 16x9|9x16] [--fps 30] [--workers 3] [--crf 18]
 //                              [--from 0] [--to 85] [--out file.mp4]
+//        node tools/render.mjs --ar 16x9 --audio-only   # put a new mix into the finished MP4
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
@@ -18,7 +19,8 @@ const opt = { ar: '16x9', fps: 30, workers: 3, crf: 20, from: 0, to: script.dura
 const argv = process.argv.slice(2);
 for (let i = 0; i < argv.length; i++) {
   const k = argv[i].replace(/^--/, '');
-  if (k in opt) opt[k] = typeof opt[k] === 'number' ? Number(argv[++i]) : argv[++i];
+  if (k === 'audio-only') opt.audioOnly = true;
+  else if (k in opt) opt[k] = typeof opt[k] === 'number' ? Number(argv[++i]) : argv[++i];
 }
 const portrait = opt.ar === '9x16';
 const W = portrait ? 1080 : 1920;
@@ -82,23 +84,43 @@ async function renderChunk(port, wi, a, b, textLog) {
   return file;
 }
 
-async function main() {
-  const t0 = Date.now();
-  const first = Math.round(opt.from * opt.fps);
-  const last = Math.round(opt.to * opt.fps);
-  const total = last - first;
-  console.log(`Rendering ${opt.ar} ${W}x${H} @ ${opt.fps} fps: ${total} frames with ${opt.workers} workers`);
-
-  // Soundtrack: synthesise if missing, then normalise loudness.
+// Soundtrack: synthesise if missing, then normalise loudness. Also writes the
+// same mix, compressed, for the live in-browser player.
+async function soundtrack() {
   const wav = path.join(BUILD, 'audio', 'soundtrack.wav');
   if (!fs.existsSync(wav)) await run(process.env.PYTHON || 'python3', [path.join(ROOT, 'audio', 'compose.py')]);
   const normWav = path.join(BUILD, 'audio', 'soundtrack-normalised.wav');
   const m = await loudnorm(wav, normWav);
   console.log(`Soundtrack measured ${m.input_i} LUFS, normalised to -14 LUFS`);
-  // The same mix, compressed for the live in-browser player.
   const liveAudio = path.join(ROOT, 'composition', 'assets', 'audio', 'soundtrack.m4a');
   fs.mkdirSync(path.dirname(liveAudio), { recursive: true });
   await run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', normWav, '-c:a', 'aac', '-b:a', '160k', '-map_metadata', '-1', '-movflags', '+faststart', liveAudio]);
+  return normWav;
+}
+
+const AUDIO_OUT = ['-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-ac', '2',
+  '-map_metadata', '-1', '-metadata', 'title=Redbelly, made simple', '-metadata:s:a:0', 'language=eng'];
+
+// Swap the soundtrack of a finished film without touching its pictures.
+async function remuxAudio() {
+  if (!fs.existsSync(out)) throw new Error(`${path.relative(ROOT, out)} does not exist yet; render it first`);
+  const normWav = await soundtrack();
+  const tmp = out.replace(/\.mp4$/, '.remux.mp4');
+  await run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', out, '-i', normWav,
+    '-map', '0:v', '-map', '1:a', '-c:v', 'copy', ...AUDIO_OUT, '-movflags', '+faststart', '-shortest', tmp]);
+  fs.renameSync(tmp, out);
+  console.log(`Put the new soundtrack into ${path.relative(ROOT, out)}`);
+}
+
+async function main() {
+  const t0 = Date.now();
+  if (opt.audioOnly) return remuxAudio();
+  const first = Math.round(opt.from * opt.fps);
+  const last = Math.round(opt.to * opt.fps);
+  const total = last - first;
+  console.log(`Rendering ${opt.ar} ${W}x${H} @ ${opt.fps} fps: ${total} frames with ${opt.workers} workers`);
+
+  const normWav = await soundtrack();
 
   const server = await startServer(0);
   const port = server.address().port;
@@ -129,9 +151,7 @@ async function main() {
     '-c:v', 'libx264', '-preset', opt.preset, '-crf', String(opt.crf), '-profile:v', 'high', '-level:v', opt.fps > 30 ? '4.2' : '4.1',
     '-g', gop, '-keyint_min', gop, '-bf', '2', '-x264-params', 'aq-mode=3:deblock=-1,-1',
     '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv',
-    '-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-ac', '2',
-    '-map_metadata', '-1', '-metadata', 'title=Redbelly, made simple', '-metadata:s:a:0', 'language=eng',
-    '-movflags', '+faststart', '-shortest', out]);
+    ...AUDIO_OUT, '-movflags', '+faststart', '-shortest', out]);
 
   const textFile = path.join(BUILD, `onscreen-text-${opt.ar}.json`);
   fs.writeFileSync(textFile, JSON.stringify(logs.flat().sort((x, y) => x.t - y.t), null, 1));

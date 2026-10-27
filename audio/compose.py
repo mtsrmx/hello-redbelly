@@ -1,25 +1,31 @@
 #!/usr/bin/env python3
-"""Original score and sound design for "Redbelly, made simple".
+"""Original score, sound design and final mix for "Redbelly, made simple".
 
-Everything you hear in the film is synthesised by this script from sine waves,
-band-limited saw waves and filtered noise. No samples, loops, presets or
+The music and every sound effect are synthesised by this script from sine
+waves, band-limited saw waves and filtered noise. No samples, loops, presets or
 third-party recordings are used, so there is nothing to license.
+
+The narration is recorded by audio/voice.py (Chatterbox, MIT licence) into
+audio/voice/. This script places each line where audio/voice/lines.json says,
+and the music and effects duck under the voice while it speaks.
 
 Timing comes from content/script.json: scene starts, the tempo and every
 sound-effect cue, so the music and effects land on the animation.
 
-    python3 audio/compose.py            # writes build/audio/soundtrack.wav
-    python3 audio/compose.py --stems    # also writes music and effects stems
+    python3 audio/compose.py              # writes build/audio/soundtrack.wav
+    python3 audio/compose.py --stems      # also writes music, effects and voice stems
+    python3 audio/compose.py --no-voice   # music and effects only
 
-Requires numpy and scipy (see audio/requirements.txt).
+Requires numpy and scipy (see audio/requirements.txt) and ffmpeg.
 """
 import argparse
 import json
 import pathlib
+import subprocess
 import wave
 
 import numpy as np
-from scipy import signal
+from scipy import ndimage, signal
 
 SR = 48000
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -610,7 +616,120 @@ def compose():
     return music, fx_bus
 
 
+# ---------------------------------------------------------------------------
+# Narration
+
+VOICE_DIR = ROOT / 'audio' / 'voice'
+VOICE_OVER_BED_DB = 11.0   # voice level above the ducked music under it
+MUSIC_DUCK_DB = -9.0
+FX_DUCK_DB = -4.0
+
+
+def load_line(path):
+    """Decode a narration line to mono float at the film's sample rate."""
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', str(path), '-af', 'aresample=resampler=soxr',
+                          '-ar', str(SR), '-ac', '1', '-f', 'f32le', '-'], check=True, capture_output=True).stdout
+    return np.frombuffer(raw, dtype='<f4').astype(np.float64)
+
+
+def narration():
+    """The voice track (mono) and a 0-1 envelope of where it speaks.
+
+    Lines come from audio/voice.py and sit where lines.json places them. Each
+    line is levelled to the same speech loudness, then the bus gets a high-pass,
+    a little presence and gentle compression."""
+    meta = json.loads((VOICE_DIR / 'lines.json').read_text())
+    v = np.zeros(N)
+    for line in meta['lines']:
+        x = load_line(VOICE_DIR / line['file'])
+        loud = np.abs(x) > np.max(np.abs(x)) * 0.03
+        x = x / (np.sqrt(np.mean(x[loud] ** 2)) + 1e-9) * 0.1
+        i = int(round(line['start'] * SR))
+        j = min(N, i + len(x))
+        v[i:j] += x[: j - i]
+    v = hp(v, 90)
+    v = v + 0.3 * bp(v, 2600, 6500)
+    rms = np.sqrt(np.maximum(lp(v ** 2, 12), 0) + 1e-12)
+    thr = 0.09
+    v = v * np.where(rms > thr, (thr / rms) ** (1 - 1 / 3), 1.0)
+    v = limit(v, 0.1 * 10 ** (10.5 / 20), look=0.002, release=0.06)
+    # Speaking envelope: fast attack, slow release, so the bed dips and recovers smoothly.
+    on = (lp(np.abs(v), 20) > 0.004).astype(float)
+    act = np.zeros(N)
+    up, down = 1 - np.exp(-1 / (0.04 * SR)), 1 - np.exp(-1 / (0.35 * SR))
+    env = 0.0
+    # One-pole follower, solved in closed form over each run of constant input.
+    edges = np.flatnonzero(np.diff(np.r_[on[0] + 1, on]))
+    edges = np.r_[edges, N]
+    for a, b in zip(edges[:-1], edges[1:]):
+        target = on[a]
+        c = up if target else down
+        n = np.arange(1, b - a + 1)
+        act[a:b] = target + (env - target) * (1 - c) ** n
+        env = act[b - 1]
+    return v, act
+
+
+def limit(x, ceiling, look=0.0015, release=0.08):
+    """Look-ahead peak limiter. Peaks are found on a 4x oversampled copy, so the
+    ceiling holds between samples too; gain falls before a peak and recovers
+    exponentially after it."""
+    st = np.atleast_2d(x)
+    n = st.shape[1]
+    det = np.abs(signal.resample_poly(st, 4, 1, axis=1)).max(axis=0)[: n * 4].reshape(n, 4).max(axis=1)
+    g = np.minimum(1.0, ceiling / np.maximum(det, 1e-12))
+    w = 2 * int(look * SR) + 1
+    g = ndimage.uniform_filter1d(ndimage.minimum_filter1d(g, w), w)
+    # Release: gain reduction decays exponentially (a running max of the reduction
+    # with exponential forgetting, solved in the log domain).
+    d = np.clip(1.0 - g, 0.0, 1.0)
+    k = np.arange(n)
+    lq = -1.0 / (release * SR)
+    with np.errstate(divide='ignore'):
+        r = np.exp(np.maximum.accumulate(np.log(d) - k * lq) + k * lq)
+    out = st * (1.0 - np.maximum(r, d))
+    return out if x.ndim == 2 else out[0]
+
+
+# K-weighting filters from ITU-R BS.1770 at 48 kHz.
+K_SHELF = ([1.53512485958697, -2.69169618940638, 1.19839281085285], [1.0, -1.69065929318241, 0.73248077421585])
+K_HP = ([1.0, -2.0, 1.0], [1.0, -1.99004745483398, 0.99007225036621])
+
+
+def lufs(x):
+    """Integrated loudness (ITU-R BS.1770-4, gated) of a stereo signal."""
+    z = signal.lfilter(*K_HP, signal.lfilter(*K_SHELF, x, axis=1), axis=1) ** 2
+    blk, hop = int(0.4 * SR), int(0.1 * SR)
+    starts = np.arange(0, x.shape[1] - blk + 1, hop)
+    cs = np.concatenate([np.zeros((2, 1)), np.cumsum(z, axis=1)], axis=1)
+    ms = ((cs[:, starts + blk] - cs[:, starts]) / blk).sum(axis=0)
+    lk = -0.691 + 10 * np.log10(ms + 1e-20)
+    ms = ms[lk > -70]
+    rel = -0.691 + 10 * np.log10(ms.mean()) - 10
+    ms = ms[-0.691 + 10 * np.log10(ms) > rel]
+    return -0.691 + 10 * np.log10(ms.mean())
+
+
+def finish(x, target=-14.0, ceiling_db=-2.5):
+    """Final master: bus compression, then level to the target loudness under a
+    true-peak ceiling, leaving room for the AAC encoder."""
+    x = np.stack([hp(ch, 28) for ch in x])
+    rms = np.sqrt(np.maximum(lp(np.mean(x ** 2, axis=0), 6), 0) + 1e-12)
+    thr = 0.32
+    x = x * np.where(rms > thr, (thr / rms) ** 0.25, 1.0)
+    ceiling = 10 ** (ceiling_db / 20)
+    gain_db = target - lufs(x)
+    for _ in range(3):
+        y = limit(x * 10 ** (gain_db / 20), ceiling)
+        miss = target - lufs(y)
+        if abs(miss) < 0.1:
+            break
+        gain_db += miss
+    return y
+
+
 def master(x):
+    """Quick master for the individual stems."""
     x = np.stack([hp(ch, 28) for ch in x])
     # Soft-knee bus compression (RMS follower).
     rms = np.sqrt(np.maximum(lp(np.mean(x ** 2, axis=0), 6), 0) + 1e-12)
@@ -639,15 +758,30 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--out', default=str(ROOT / 'build' / 'audio' / 'soundtrack.wav'))
     ap.add_argument('--stems', action='store_true')
+    ap.add_argument('--no-voice', action='store_true', help='music and effects only')
     a = ap.parse_args()
     music, fx_bus = compose()
-    mix = master(music * 0.8 + fx_bus * 1.0)
+    music = music * 0.8
+    voice = None
+    if not a.no_voice and (VOICE_DIR / 'lines.json').exists():
+        v, act = narration()
+        music = music * 10 ** (MUSIC_DUCK_DB * act / 20)
+        fx_bus = fx_bus * 10 ** (FX_DUCK_DB * act / 20)
+        # Level the voice against the ducked bed where it speaks.
+        speaking = act > 0.9
+        bed = np.sqrt(np.mean((music[:, speaking] + fx_bus[:, speaking]) ** 2))
+        lvl = np.sqrt(np.mean(v[speaking] ** 2))
+        v = v * bed / lvl * 10 ** (VOICE_OVER_BED_DB / 20)
+        voice = reverb(np.stack([v, v]) * 0.7071, 0.05)
+    mix = finish(music + fx_bus + (voice if voice is not None else 0))
     out = pathlib.Path(a.out)
     write_wav(out, mix)
     if a.stems:
         write_wav(out.with_name('stem-music.wav'), master(music))
         write_wav(out.with_name('stem-effects.wav'), master(fx_bus))
-    print(f'Wrote {out} ({DUR:.2f} s, {SR} Hz, 24-bit stereo)')
+        if voice is not None:
+            write_wav(out.with_name('stem-voice.wav'), master(voice))
+    print(f'Wrote {out} ({DUR:.2f} s, {SR} Hz, 24-bit stereo{", with narration" if voice is not None else ""})')
 
 
 if __name__ == '__main__':

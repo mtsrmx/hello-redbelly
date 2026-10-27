@@ -1,0 +1,342 @@
+{
+  "asr": "faster-whisper small.en",
+  "slack": 0.3,
+  "files": {
+    "16x9": {
+      "file": "submission/redbelly-made-simple-16x9.mp4",
+      "sha256": "48cb8e4e49487b151087d3bf1ab9cd12853f3f9940611e7d3e42c02cadf29fb7",
+      "lines": [
+        {
+          "n": 0,
+          "say": "You can send money in seconds.",
+          "heard": "You can send money in seconds.",
+          "score": 1.0
+        },
+        {
+          "n": 1,
+          "say": "But buying into a fund?",
+          "heard": "But buying into a fund?",
+          "score": 1.0
+        },
+        {
+          "n": 2,
+          "say": "That can still take days.",
+          "heard": "That can still take days.",
+          "score": 1.0
+        },
+        {
+          "n": 3,
+          "say": "Forms. ID checks. Middlemen. Waiting.",
+          "heard": "Forms, ID checks, middlemen, waiting.",
+          "score": 1.0
+        },
+        {
+          "n": 4,
+          "say": "Redbelly is built to change that.",
+          "heard": "Red Belly is built to change that.",
+          "score": 1.0
+        },
+        {
+          "n": 5,
+          "say": "A public network, built in Australia, where real-world assets go digital.",
+          "heard": "A public network built in Australia where real -world assets go digital.",
+          "score": 1.0
+        },
+        {
+          "n": 6,
+          "say": "Bonds. Loans. Funds. Property. Carbon credits.",
+          "heard": "Bonds, loans, funds, property, carbon credits.",
+          "score": 1.0
+        },
+        {
+          "n": 7,
+          "say": "Ownership becomes digital, with the rules written right in.",
+          "heard": "Ownership becomes digital with the rules written right in.",
+          "score": 1.0
+        },
+        {
+          "n": 8,
+          "say": "Here's how it works.",
+          "heard": "Here's how it works.",
+          "score": 1.0
+        },
+        {
+          "n": 9,
+          "say": "One: everyone is verified.",
+          "heard": "One, everyone is verified.",
+          "score": 1.0
+        },
+        {
+          "n": 10,
+          "say": "Every person proves who they are with a real passport check.",
+          "heard": "Every person proves who they are with a real passport check.",
+          "score": 1.0
+        },
+        {
+          "n": 11,
+          "say": "Their personal details stay protected.",
+          "heard": "Their personal details stay protected.",
+          "score": 1.0
+        },
+        {
+          "n": 12,
+          "say": "Two: the rules are built in.",
+          "heard": "Two, the rules are built in.",
+          "score": 1.0
+        },
+        {
+          "n": 13,
+          "say": "Each asset knows who's allowed to own it.",
+          "heard": "Each asset knows who's allowed to own it.",
+          "score": 1.0
+        },
+        {
+          "n": 14,
+          "say": "Rule-breaking trades simply don't happen.",
+          "heard": "Rule -breaking trades simply don't happen.",
+          "score": 1.0
+        },
+        {
+          "n": 15,
+          "say": "Three: done means done.",
+          "heard": "Three, done means done.",
+          "score": 1.0
+        },
+        {
+          "n": 16,
+          "say": "Money and ownership swap in one step.",
+          "heard": "Money and ownership swap in one step.",
+          "score": 1.0
+        },
+        {
+          "n": 17,
+          "say": "Final in seconds. No take-backs.",
+          "heard": "Final in seconds, no take -backs.",
+          "score": 1.0
+        },
+        {
+          "n": 18,
+          "say": "Developed at the University of Sydney and C.S.I.R.O., Australia's science agency.",
+          "heard": "Developed at the University of Sydney and CSIRO, Australia's science agency. Its",
+          "score": 0.957
+        },
+        {
+          "n": 19,
+          "say": "Its core design is mathematically proven correct.",
+          "heard": "core design is mathematically proven correct.",
+          "score": 0.923
+        },
+        {
+          "n": 20,
+          "say": "Australia's central bank issued trial digital dollars on Redbelly, the only public network that carried them, in Project Acacia.",
+          "heard": "Australia's central bank issued trial digital dollars on Red Belly, the only public network that carried them in Project Acacia.",
+          "score": 1.0
+        },
+        {
+          "n": 21,
+          "say": "The result: less paperwork.",
+          "heard": "The result? Less paperwork.",
+          "score": 1.0
+        },
+        {
+          "n": 22,
+          "say": "Fewer middlemen.",
+          "heard": "Fewer middlemen.",
+          "score": 1.0
+        },
+        {
+          "n": 23,
+          "say": "Markets that never close.",
+          "heard": "Markets that never close.",
+          "score": 1.0
+        },
+        {
+          "n": 24,
+          "say": "Ownership that moves like money: fast, safe, and by the rules.",
+          "heard": "Ownership that moves like money, fast, safe, and by the rules.",
+          "score": 1.0
+        },
+        {
+          "n": 25,
+          "say": "Redbelly. Verified people. Built-in rules.",
+          "heard": "Red Belly. Verified people. Built -in rules.",
+          "score": 1.0
+        },
+        {
+          "n": 26,
+          "say": "Final in seconds. Redbelly dot network.",
+          "heard": "Final in seconds. RedBelly .Network.",
+          "score": 1.0
+        }
+      ]
+    },
+    "9x16": {
+      "file": "submission/redbelly-made-simple-9x16.mp4",
+      "sha256": "4b227087aacf04dff7a0d51294e8a56b658268ee5041d8821c8547beeb951abf",
+      "lines": [
+        {
+          "n": 0,
+          "say": "You can send money in seconds.",
+          "heard": "You can send money in seconds.",
+          "score": 1.0
+        },
+        {
+          "n": 1,
+          "say": "But buying into a fund?",
+          "heard": "But buying into a fund?",
+          "score": 1.0
+        },
+        {
+          "n": 2,
+          "say": "That can still take days.",
+          "heard": "That can still take days.",
+          "score": 1.0
+        },
+        {
+          "n": 3,
+          "say": "Forms. ID checks. Middlemen. Waiting.",
+          "heard": "Forms, ID checks, middlemen, waiting.",
+          "score": 1.0
+        },
+        {
+          "n": 4,
+          "say": "Redbelly is built to change that.",
+          "heard": "Red Belly is built to change that.",
+          "score": 1.0
+        },
+        {
+          "n": 5,
+          "say": "A public network, built in Australia, where real-world assets go digital.",
+          "heard": "A public network built in Australia where real -world assets go digital.",
+          "score": 1.0
+        },
+        {
+          "n": 6,
+          "say": "Bonds. Loans. Funds. Property. Carbon credits.",
+          "heard": "Bonds, loans, funds, property, carbon credits.",
+          "score": 1.0
+        },
+        {
+          "n": 7,
+          "say": "Ownership becomes digital, with the rules written right in.",
+          "heard": "Ownership becomes digital with the rules written right in.",
+          "score": 1.0
+        },
+        {
+          "n": 8,
+          "say": "Here's how it works.",
+          "heard": "Here's how it works.",
+          "score": 1.0
+        },
+        {
+          "n": 9,
+          "say": "One: everyone is verified.",
+          "heard": "One, everyone is verified.",
+          "score": 1.0
+        },
+        {
+          "n": 10,
+          "say": "Every person proves who they are with a real passport check.",
+          "heard": "Every person proves who they are with a real passport check.",
+          "score": 1.0
+        },
+        {
+          "n": 11,
+          "say": "Their personal details stay protected.",
+          "heard": "Their personal details stay protected.",
+          "score": 1.0
+        },
+        {
+          "n": 12,
+          "say": "Two: the rules are built in.",
+          "heard": "Two, the rules are built in.",
+          "score": 1.0
+        },
+        {
+          "n": 13,
+          "say": "Each asset knows who's allowed to own it.",
+          "heard": "Each asset knows who's allowed to own it.",
+          "score": 1.0
+        },
+        {
+          "n": 14,
+          "say": "Rule-breaking trades simply don't happen.",
+          "heard": "Rule -breaking trades simply don't happen.",
+          "score": 1.0
+        },
+        {
+          "n": 15,
+          "say": "Three: done means done.",
+          "heard": "Three, done means done.",
+          "score": 1.0
+        },
+        {
+          "n": 16,
+          "say": "Money and ownership swap in one step.",
+          "heard": "Money and ownership swap in one step.",
+          "score": 1.0
+        },
+        {
+          "n": 17,
+          "say": "Final in seconds. No take-backs.",
+          "heard": "Final in seconds, no take -backs.",
+          "score": 1.0
+        },
+        {
+          "n": 18,
+          "say": "Developed at the University of Sydney and C.S.I.R.O., Australia's science agency.",
+          "heard": "Developed at the University of Sydney and CSIRO, Australia's science agency. Its",
+          "score": 0.957
+        },
+        {
+          "n": 19,
+          "say": "Its core design is mathematically proven correct.",
+          "heard": "core design is mathematically proven correct.",
+          "score": 0.923
+        },
+        {
+          "n": 20,
+          "say": "Australia's central bank issued trial digital dollars on Redbelly, the only public network that carried them, in Project Acacia.",
+          "heard": "Australia's central bank issued trial digital dollars on Red Belly, the only public network that carried them in Project Acacia.",
+          "score": 1.0
+        },
+        {
+          "n": 21,
+          "say": "The result: less paperwork.",
+          "heard": "The result? Less paperwork.",
+          "score": 1.0
+        },
+        {
+          "n": 22,
+          "say": "Fewer middlemen.",
+          "heard": "Fewer middlemen.",
+          "score": 1.0
+        },
+        {
+          "n": 23,
+          "say": "Markets that never close.",
+          "heard": "Markets that never close.",
+          "score": 1.0
+        },
+        {
+          "n": 24,
+          "say": "Ownership that moves like money: fast, safe, and by the rules.",
+          "heard": "Ownership that moves like money, fast, safe, and by the rules.",
+          "score": 1.0
+        },
+        {
+          "n": 25,
+          "say": "Redbelly. Verified people. Built-in rules.",
+          "heard": "Red Belly. Verified people. Built -in rules.",
+          "score": 1.0
+        },
+        {
+          "n": 26,
+          "say": "Final in seconds. Redbelly dot network.",
+          "heard": "Final in seconds. RedBelly .Network.",
+          "score": 1.0
+        }
+      ]
+    }
+  }
+}
