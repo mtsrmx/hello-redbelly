@@ -41,19 +41,28 @@ const formats = {
   '16x9': { src: 'submission/redbelly-made-simple-16x9.mp4', poster: 'submission/poster-16x9.jpg' },
   '9x16': { src: 'submission/redbelly-made-simple-9x16.mp4', poster: 'submission/poster-9x16.jpg' },
 };
+// While a format is loading, `pending` holds where it should open and whether
+// to keep playing; a seek in the meantime updates it.
+let pending = null;
 function setFormat(ar, keepTime = true) {
-  const t = keepTime ? film.currentTime : 0;
-  const playing = !film.paused;
+  pending = pending || { time: keepTime ? film.currentTime : 0, play: !film.paused };
   document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.ar === ar)));
   $('.frame').dataset.ar = ar;
   film.poster = formats[ar].poster;
   film.querySelector('source').src = formats[ar].src;
   film.load();
-  film.addEventListener('loadedmetadata', () => { film.currentTime = t; if (playing) film.play(); }, { once: true });
 }
+film.addEventListener('loadedmetadata', () => {
+  if (!pending) return;
+  const { time, play } = pending;
+  pending = null;
+  film.currentTime = time;
+  if (play) film.play().catch(() => {});
+});
 document.querySelectorAll('.tabs button').forEach((b) => b.addEventListener('click', () => setFormat(b.dataset.ar)));
 function seek(t) {
-  film.currentTime = t;
+  if (pending) Object.assign(pending, { time: t, play: true });
+  else film.currentTime = t;
   film.play().catch(() => {});
   $('#watch').scrollIntoView({ behavior: 'smooth' });
 }
