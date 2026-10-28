@@ -1,4 +1,4 @@
-# Redbelly, made simple: script
+# Redbelly, where it matters: script
 
 What Redbelly does and why it matters, in everyday language. Length 1:25 (85 s). A narrator reads the subtitles, and the words on screen carry the story, so the film works with or without sound; the same words are in the subtitle files.
 
@@ -44,7 +44,7 @@ What Redbelly does and why it matters, in everyday language. Length 1:25 (85 s).
 | 17 | 47.20 | 49.80 | Money and ownership swap in one step. |
 | 18 | 49.90 | 52.40 | Final in seconds. No take-backs. |
 | 19 | 52.60 | 54.50 | Developed at the University of Sydney |
-| 20 | 54.55 | 56.80 | and CSIRO, Australia's science agency. (said as "and C.S.I.R.O., Australia's science agency.") |
+| 20 | 54.55 | 56.80 | and CSIRO, Australia's science agency. (said as "and C. S. I. R. O., Australia's science agency.") |
 | 21 | 56.85 | 59.90 | Its core design is mathematically proven correct. |
 | 22 | 60.05 | 63.40 | Australia's central bank issued trial digital dollars on Redbelly, |
 | 23 | 63.45 | 67.40 | the only public network that carried them, in Project Acacia. |

@@ -12,9 +12,9 @@
   "asr": "faster-whisper small.en",
   "rules": {
     "lead": 0.05,
-    "gap": 0.12,
-    "overhang": 0.25,
-    "late": 0.45,
+    "gap": 0.3,
+    "overhang": 0.65,
+    "late": 1.0,
     "max_tempo": 1.12,
     "min_score": 0.97
   },
@@ -211,8 +211,8 @@
       "heard": "Every person proves who they are with a real passport check.",
       "score": 1.0,
       "file": "line-10.flac",
-      "start": 31.822,
-      "end": 34.693,
+      "start": 32.002,
+      "end": 34.873,
       "duration": 2.871,
       "caption_start": 31.75,
       "next_caption": 35.05
@@ -229,8 +229,8 @@
       "heard": "Their personal details stay protected.",
       "score": 1.0,
       "file": "line-11.flac",
-      "start": 35.1,
-      "end": 36.915,
+      "start": 35.173,
+      "end": 36.988,
       "duration": 1.815,
       "caption_start": 35.05,
       "next_caption": 37.6
@@ -265,8 +265,8 @@
       "heard": "Each asset knows who's allowed to own it.",
       "score": 1.0,
       "file": "line-13.flac",
-      "start": 39.75,
-      "end": 41.746,
+      "start": 39.904,
+      "end": 41.901,
       "duration": 1.996,
       "caption_start": 39.7,
       "next_caption": 42.45
@@ -319,8 +319,8 @@
       "heard": "money and ownership swap in one step.",
       "score": 1.0,
       "file": "line-16.flac",
-      "start": 47.318,
-      "end": 49.379,
+      "start": 47.498,
+      "end": 49.559,
       "duration": 2.061,
       "caption_start": 47.2,
       "next_caption": 49.9
@@ -350,15 +350,15 @@
         19
       ],
       "text": "Developed at the University of Sydney and CSIRO, Australia's science agency.",
-      "say": "Developed at the University of Sydney and C.S.I.R.O., Australia's science agency.",
-      "seed": 281,
-      "tempo": 1.05,
+      "say": "Developed at the University of Sydney and C. S. I. R. O., Australia's science agency.",
+      "seed": 502,
+      "tempo": 1.0,
       "heard": "Developed at the University of Sydney and CSIRO, Australia's science agency.",
       "score": 1.0,
       "file": "line-18.flac",
       "start": 52.65,
-      "end": 57.1,
-      "duration": 4.45,
+      "end": 57.482,
+      "duration": 4.832,
       "caption_start": 52.6,
       "next_caption": 56.85
     },
@@ -374,8 +374,8 @@
       "heard": "its core design is mathematically proven correct.",
       "score": 1.0,
       "file": "line-19.flac",
-      "start": 57.22,
-      "end": 59.86,
+      "start": 57.782,
+      "end": 60.422,
       "duration": 2.64,
       "caption_start": 56.85,
       "next_caption": 60.05
@@ -393,8 +393,8 @@
       "heard": "Australia's central bank issued trial digital dollars on Redbelly, the only public network that carried them, in Project Acacia.",
       "score": 1.0,
       "file": "line-20.flac",
-      "start": 60.1,
-      "end": 66.236,
+      "start": 60.722,
+      "end": 66.858,
       "duration": 6.136,
       "caption_start": 60.05,
       "next_caption": 67.6
@@ -429,8 +429,8 @@
       "heard": "fewer middlemen.",
       "score": 1.0,
       "file": "line-22.flac",
-      "start": 69.608,
-      "end": 70.533,
+      "start": 69.788,
+      "end": 70.713,
       "duration": 0.925,
       "caption_start": 69.5,
       "next_caption": 70.9
@@ -447,8 +447,8 @@
       "heard": "markets that never close.",
       "score": 1.0,
       "file": "line-23.flac",
-      "start": 70.95,
-      "end": 72.316,
+      "start": 71.013,
+      "end": 72.379,
       "duration": 1.366,
       "caption_start": 70.9,
       "next_caption": 72.6
@@ -465,8 +465,8 @@
       "heard": "ownership that moves like money, fast, safe, and by the rules.",
       "score": 1.0,
       "file": "line-24.flac",
-      "start": 72.65,
-      "end": 76.058,
+      "start": 72.679,
+      "end": 76.087,
       "duration": 3.408,
       "caption_start": 72.6,
       "next_caption": 77.7
@@ -501,11 +501,11 @@
       "heard": "Final in seconds, redbelly.network.",
       "score": 1.0,
       "file": "line-26.flac",
-      "start": 81.2,
-      "end": 83.818,
+      "start": 81.319,
+      "end": 83.937,
       "duration": 2.618,
       "caption_start": 81.15,
-      "next_caption": 84.65
+      "next_caption": 85.05
     }
   ]
 }

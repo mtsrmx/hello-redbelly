@@ -4,7 +4,7 @@
   "files": {
     "16x9": {
       "file": "submission/redbelly-made-simple-16x9.mp4",
-      "sha256": "48cb8e4e49487b151087d3bf1ab9cd12853f3f9940611e7d3e42c02cadf29fb7",
+      "sha256": "9eff1d0efc9f43dfc2e6d3379e18143db530fa3b8e0e6e9e8dae58183029a715",
       "lines": [
         {
           "n": 0,
@@ -116,8 +116,8 @@
         },
         {
           "n": 18,
-          "say": "Developed at the University of Sydney and C.S.I.R.O., Australia's science agency.",
-          "heard": "Developed at the University of Sydney and CSIRO, Australia's science agency. Its",
+          "say": "Developed at the University of Sydney and C. S. I. R. O., Australia's science agency.",
+          "heard": "Developed at the University of Sydney and CSIRO, Australia's science agency, its",
           "score": 0.957
         },
         {
@@ -172,7 +172,7 @@
     },
     "9x16": {
       "file": "submission/redbelly-made-simple-9x16.mp4",
-      "sha256": "4b227087aacf04dff7a0d51294e8a56b658268ee5041d8821c8547beeb951abf",
+      "sha256": "93d439d2ff14de12cacf03ff10cc444cdfb4045ea8f385525a026d082ecef96f",
       "lines": [
         {
           "n": 0,
@@ -284,8 +284,8 @@
         },
         {
           "n": 18,
-          "say": "Developed at the University of Sydney and C.S.I.R.O., Australia's science agency.",
-          "heard": "Developed at the University of Sydney and CSIRO, Australia's science agency. Its",
+          "say": "Developed at the University of Sydney and C. S. I. R. O., Australia's science agency.",
+          "heard": "Developed at the University of Sydney and CSIRO, Australia's science agency, its",
           "score": 0.957
         },
         {

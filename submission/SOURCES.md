@@ -1,6 +1,6 @@
 # Sources
 
-Every fact in *Redbelly, made simple* comes from the public pages below. All were read on 27 October 2026. The exact sentences behind each line of the film are in [FACT-CHECK.md](FACT-CHECK.md).
+Every fact in *Redbelly, where it matters* comes from the public pages below. All were read on 27 October 2026. The exact sentences behind each line of the film are in [FACT-CHECK.md](FACT-CHECK.md).
 
 | # | Source | Publisher | Facts it supports |
 |---|---|---|---|

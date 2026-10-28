@@ -17,6 +17,7 @@ tightened with Rubber Band time-stretching (pitch and formants preserved).
 
     python audio/voice.py              # writes audio/voice/line-NN.flac and lines.json
     python audio/voice.py --only 4 12  # re-record some lines, keep the rest
+    python audio/voice.py --only 18 --takes 1 --seed 18=502   # one line, from a chosen seed
 
 Requires the packages in audio/voice-requirements.txt (Python 3.11, CPU is fine).
 """
@@ -42,9 +43,9 @@ MODEL = 'ResembleAI/chatterbox'
 SETTINGS = dict(exaggeration=0.55, cfg_weight=0.45, temperature=0.7)
 SEED = 100
 LEAD = 0.05       # voice starts this long after its subtitle appears
-GAP = 0.12        # shortest breath between two lines
-OVERHANG = 0.25   # a line may run this far into the next subtitle
-LATE = 0.45       # latest start after its subtitle appears
+GAP = 0.3         # shortest breath between two lines
+OVERHANG = 0.65   # a line may run this far into the next subtitle
+LATE = 1.0        # latest start after its subtitle appears
 MAX_TEMPO = 1.12  # most a take may be tightened
 END_PAD = 0.6     # quiet time left before the film ends
 MIN_SCORE = 0.97  # share of words Whisper must hear in the right order
@@ -115,7 +116,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--takes', type=int, default=2)
     ap.add_argument('--only', type=int, nargs='*', help='line numbers to re-record')
+    ap.add_argument('--seed', action='append', default=[], metavar='N=SEED', help='start line N from this seed')
     a = ap.parse_args()
+    first_seed = {int(n): int(v) for n, v in (x.split('=') for x in a.seed)}
 
     from chatterbox.tts import ChatterboxTTS
     from faster_whisper import WhisperModel
@@ -148,7 +151,7 @@ def main():
             for k in range(a.takes + 3):
                 if k >= a.takes and any(t['fits'] and t['score'] >= MIN_SCORE for t in takes):
                     break
-                seed = SEED + n * 10 + k
+                seed = first_seed.get(n, SEED + n * 10) + k
                 torch.manual_seed(seed)
                 x = tts.generate(u['say'], **SETTINGS).squeeze(0).numpy()
                 x = trim(x, sr)

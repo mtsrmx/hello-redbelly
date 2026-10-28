@@ -9,7 +9,7 @@
       "dur": "85.00",
       "loud": "-14.0 LUFS / -2.0 dBTP",
       "size": "39.2 MB",
-      "br": "3871 kb/s"
+      "br": "3872 kb/s"
     },
     {
       "ar": "9x16",
@@ -18,7 +18,7 @@
       "dur": "85.00",
       "loud": "-14.0 LUFS / -2.0 dBTP",
       "size": "39.1 MB",
-      "br": "3860 kb/s"
+      "br": "3861 kb/s"
     }
   ],
   "groups": [
@@ -288,7 +288,7 @@
         {
           "name": "Every line has its audio file at the recorded length",
           "ok": true,
-          "detail": "27 files, 65.0 s of speech"
+          "detail": "27 files, 65.3 s of speech"
         },
         {
           "name": "Speech recognition hears every line word for word",
@@ -298,17 +298,17 @@
         {
           "name": "Each line is spoken while its subtitle is on screen",
           "ok": true,
-          "detail": "starts at most 0.37 s after its subtitle; never runs more than 0.25 s into the next"
+          "detail": "starts at most 0.93 s after its subtitle; never runs more than 0.65 s into the next"
         },
         {
           "name": "Lines never overlap",
           "ok": true,
-          "detail": "shortest pause 0.12 s"
+          "detail": "shortest pause 0.30 s"
         },
         {
           "name": "No line is sped up by more than 12%",
           "ok": true,
-          "detail": "1 line tightened, at most 5%"
+          "detail": "none tightened"
         },
         {
           "name": "16x9: the narration is understood over the music in the finished film",
