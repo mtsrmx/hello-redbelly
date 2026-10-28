@@ -99,7 +99,7 @@ async function soundtrack() {
 }
 
 const AUDIO_OUT = ['-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-ac', '2',
-  '-map_metadata', '-1', '-metadata', 'title=Redbelly, made simple', '-metadata:s:a:0', 'language=eng'];
+  '-map_metadata', '-1', '-metadata', `title=${script.title}`, '-metadata:s:a:0', 'language=eng'];
 
 // Swap the soundtrack of a finished film without touching its pictures.
 async function remuxAudio() {

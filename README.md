@@ -2,7 +2,7 @@
   <img src="composition/assets/brand/isotype-red.svg" width="64" height="70" alt="Redbelly">
 </p>
 
-<h1 align="center">Redbelly, made simple</h1>
+<h1 align="center">Redbelly, where it matters</h1>
 
 <p align="center">
   An 85-second animated explainer that tells anyone, a friend, a parent or a business owner,<br>
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://redbelly-made-simple.vercel.app"><b>Open the review site</b></a>
+  <a href="https://hello-redbelly.vercel.app"><b>Open the review site</b></a>
   &nbsp;·&nbsp;
   <a href="submission/redbelly-made-simple-16x9.mp4">Film 16:9</a>
   &nbsp;·&nbsp;
@@ -33,7 +33,7 @@
 </p>
 
 <p align="center">
-  <a href="https://redbelly-made-simple.vercel.app"><img src="submission/poster-16x9.jpg" width="820" alt="Frame from the film: the Redbelly logo above the line Redbelly is built to change that."></a>
+  <a href="https://hello-redbelly.vercel.app"><img src="submission/poster-16x9.jpg" width="820" alt="Frame from the film: the Redbelly logo above the line Redbelly is built to change that."></a>
 </p>
 
 ## The entry
@@ -171,7 +171,7 @@ VOICE_PYTHON=.voice/bin/python npm run check-mix  # confirm the narration is und
 [`index.html`](index.html) is a static review site for the whole entry: the film in both formats, a clickable storyboard, every subtitle line highlighted as the film plays, the brief point by point, the fact check with its quotes, the sources, the verification results and the files.
 
 <p align="center">
-  <img src="docs/screenshots/home.png" width="820" alt="Review site home: the title Redbelly, made simple above the film player with landscape and vertical tabs">
+  <img src="docs/screenshots/home.png" width="820" alt="Review site home: the title Redbelly, where it matters above the film player with landscape and vertical tabs">
 </p>
 
 <p align="center">
@@ -188,7 +188,7 @@ VOICE_PYTHON=.voice/bin/python npm run check-mix  # confirm the narration is und
   <img src="docs/screenshots/mobile.png" width="260" alt="The review site at phone width">
 </p>
 
-- **Live:** [redbelly-made-simple.vercel.app](https://redbelly-made-simple.vercel.app)
+- **Live:** [hello-redbelly.vercel.app](https://hello-redbelly.vercel.app)
 - **Vercel:** import the repository with the *Other* framework preset and leave *Root Directory* empty. There is no build step; the repository root is the site. [`vercel.json`](vercel.json) adds `noindex` headers and correct subtitle content types.
 - **Any static host:** upload the repository as it is, or run `npm run preview` locally.
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Narration for "Redbelly, made simple".
+"""Narration for "Redbelly, where it matters".
 
 The voice reads the film's own subtitles from content/script.json, so what you
 hear, what you read and what the fact check covers are the same words. Where a

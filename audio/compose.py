@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Original score, sound design and final mix for "Redbelly, made simple".
+"""Original score, sound design and final mix for "Redbelly, where it matters".
 
 The music and every sound effect are synthesised by this script from sine
 waves, band-limited saw waves and filtered noise. No samples, loops, presets or

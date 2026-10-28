@@ -161,7 +161,7 @@ table.grid img { width: 38mm; border-radius: 1.5mm; display: block; }
 </style></head><body>`;
 
 html += `<section class="cover">${logo}
-<h1>Redbelly, <span>made simple</span></h1>
+<h1>${esc(script.title.split(', ')[0])}, <span>${esc(script.title.split(', ').slice(1).join(', '))}</span></h1>
 <p class="lead">${esc(script.logline)} An animated explainer for people outside crypto, told in everyday words with no jargon.</p>
 ${poster}
 <table>
